@@ -1,5 +1,5 @@
 import React from "react";
-import Showcase from "../components/showcase/Showcase.jsx";
+import Showcase from "../components/looks/showcase/Showcase.jsx";
 
 function Page() {
   return (
