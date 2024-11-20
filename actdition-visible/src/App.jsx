@@ -20,7 +20,7 @@ function App() {
       <h1>Vite + React</h1>
       <div className="card">
         <button onClick={() => navigate("/page")}>
-          This should navigate you to the second page
+          This should navigate you a cool gta san andreas animation
         </button>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
