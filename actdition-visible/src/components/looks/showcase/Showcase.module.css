@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Caladea&display=swap');
 .showcase {
-  background-color: #181818;
   overflow: hidden;
 }
 
@@ -274,7 +273,6 @@ section:nth-child(4) {
 }
 @media (max-width: 10000px) {
   #showcase {
-    position: absolute;
     top: -20px;
     left: -200px;
     margin: 0;

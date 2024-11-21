@@ -1,5 +1,4 @@
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import Showcase from './components/looks/showcase/Showcase.jsx';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -9,26 +8,10 @@ function App() {
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={reactLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={viteLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className='title'>
+          ACTDITION<span>2.0</span>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => navigate("/page")}>
-          This should navigate you a cool gta san andreas animation
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Showcase />
     </>
   )
 }

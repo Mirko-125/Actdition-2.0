@@ -2,9 +2,28 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
+  user-select: none;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+}
+
+@font-face {
+  font-family: 'Jersey M54';
+  src: url('/fonts/Jersey M54.ttf') format('truetype');
+}
+
+.title {
+  background-color: black;
+  font-family: 'Jersey M54', sans-serif; 
+  color: white;
+  font-size: 175px;
+  text-align: center;
+}
+
+.title span {
+  font-size: 30px;
+  color: pink;
 }
