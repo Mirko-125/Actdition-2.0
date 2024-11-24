@@ -1,18 +1,12 @@
 import React from 'react';
+import styles from './Navbar.module.css';
 
 function Navbar() {
     <>
-        <nav>
-            {/*
-            <a onClick={() => navigate('/')} className="clickable-link">
-                <img className="punk-logo-title" src={logoSvg} alt="LOGO" /> 
-            </a>*
-            */}
-            <ul className="navigation-links">
-                {/* <li className="link"><a onClick={() => navigate('/bag')} className="clickable-link">Bag</a></li> */}
-            </ul>
-            <ul>
-                {/* <li className="link"><a onClick={() => navigate('/bag')} className="clickable-link">Bag</a></li> */}
+        <nav className={styles.navbar}>
+            <ul className={styles.navigationlinks}>
+                <li className={styles.link}><a onClick={() => navigate('/')} className={styles.clickablelink}>How it works</a></li>
+                <li className={styles.link}><a onClick={() => navigate('/')} className={styles.clickablelink}>Sign in</a></li>
             </ul>
         </nav>
     </>

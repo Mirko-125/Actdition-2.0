@@ -1,1 +1,4 @@
 https://dndkit.com/
+
+the animation should have it's time variable, so they would be synched when
+called in multiple instances when on one page

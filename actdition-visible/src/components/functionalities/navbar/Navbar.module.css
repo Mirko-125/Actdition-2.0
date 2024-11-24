@@ -1,0 +1,50 @@
+.navbar
+{
+  position: fixed;
+  width: 100%;
+  /*background-color: #ffffff;*/
+  color: #000000;/*#333*/
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(10.5px);
+  -webkit-transition: background-color 750ms;
+  transition: background-color 750ms;
+  z-index: 6;
+}
+
+.navbar:hover
+{
+  background-color: #000000;
+  -webkit-transition: background-color 750ms linear;
+  -ms-transition: background-color 750ms linear;
+  transition: background-color 750ms linear;
+  color:#ffffff;
+}
+
+.navigationlinks
+{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  padding: 0 1rem;
+  align-items: center;
+}
+
+.link:active
+{
+  text-decoration: underline;
+  color: rgb(129, 166, 255);
+}
+
+.link:hover
+{
+  text-decoration: underline;
+}
