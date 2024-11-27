@@ -13,19 +13,12 @@
 
 body {
   margin: 0;
+  display: block
 }
 
 @font-face {
   font-family: 'Jersey M54';
   src: url('/fonts/Jersey M54.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'HelveticaMedium'; 
-  src: url('/fonts/Helvetica-Medium.woff2') format('woff2'), 
-       url('/fonts/Helvetica-Medium.woff') format('woff');   
-  font-weight: normal;
-  font-style: normal;
 }
 
 .title {
