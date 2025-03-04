@@ -1,43 +1,70 @@
 @import url('https://fonts.googleapis.com/css2?family=Caladea&display=swap');
-.showcase {
-  overflow: hidden;
-}
 
 .group {
   display: flex;
+  flex-wrap: nowrap; /* Ensures horizontal layout on larger screens */
   justify-content: space-between;
+  align-items: center;
   width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  gap: 20px;
 }
 
-.group > *:first-child {
-  width: 60%;
+/* Showcase Styling */
+.showcase {
+  flex: 1 1 60%;
+  max-width: 60%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
-.group > *:nth-child(2) {
-  width: 40%;
-}
-
+/* Info Box */
 .info {
+  flex: 1 1 40%;
+  max-width: 40%;
   color: white;
-  text-align: center;
+  text-align: left;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.3rem;
   padding: 30px;
-  padding-right: 70px;
-
+  box-sizing: border-box;
 }
 
+/* Showcase Animation Area */
 #showcase {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
-  width: 1000px;
-  height: 700px;
+  width: 80%;
+  max-width: 1000px;
+  height: 500px;
 }
 
+/* Mobile: Hide Showcase, Show Only Info */
+@media (max-width: 768px) {
+  .group {
+    flex-direction: column; /* Stacks content */
+    align-items: center;
+  }
+
+  .showcase {
+    display: none; /* Hides animation on mobile */
+  }
+
+  .info {
+    flex: 1 1 100%;
+    max-width: 90%; /* Adjusts width */
+    font-size: 1.5rem;
+  }
+}
+
+/*#region Sections*/
 section {
   display: inline-block;
   position: relative;
@@ -62,6 +89,10 @@ section:nth-child(1) {
   -webkit-animation: section-1 8s infinite;
   animation: section-1 8s infinite;
 }
+
+/*#endregion */
+
+/*#region SectionsAnimations*/
 
 @-moz-keyframes section-1 {
   0%, 20%, 100% {
@@ -297,14 +328,4 @@ section:nth-child(4) {
     -webkit-clip-path: polygon(0% 77%, 5% 18%, 47% 21%, 32% 67%);
   }
 }
-@media (max-width: 10000px) {
-  #showcase {
-    top: -20px;
-    left: -200px;
-    margin: 0;
-    -moz-transform: scale(0.65, 0.65);
-    -ms-transform: scale(0.65, 0.65);
-    -webkit-transform: scale(0.65, 0.65);
-    transform: scale(0.65, 0.65);
-  }
-}
+/*#endregion */

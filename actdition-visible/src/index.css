@@ -16,6 +16,7 @@ body {
   display: block
 }
 
+/*#region Main app title screen*/
 @font-face {
   font-family: 'Jersey M54';
   src: url('/fonts/Jersey M54.ttf') format('truetype');
@@ -23,13 +24,42 @@ body {
 
 .title {
   background-color: black;
-  font-family: 'Jersey M54', sans-serif; 
+  font-family: 'Jersey M54', sans-serif;
   color: white;
-  font-size: 175px;
+  font-size: 10vw; 
   text-align: center;
+  padding: 10px; 
 }
 
 .title span {
-  font-size: 30px;
+  font-size: 2vw; 
   color: pink;
 }
+
+@media (max-width: 1200px) {
+  .title {
+    font-size: 8vw;
+  }
+  .title span {
+    font-size: 1.5vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 12vw;
+  }
+  .title span {
+    font-size: 3vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 15vw;
+  }
+  .title span {
+    font-size: 4vw;
+  }
+}
+/*#endregion */
