@@ -1,0 +1,39 @@
+.window 
+{
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  right: -350px; 
+  width: 350px;
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+  transition: right 0.3s ease-in-out;
+}
+
+.window.visible 
+{
+  right: 0;
+}
+
+.holdup
+{
+ text-align: center;
+}
+
+.exit
+{
+  cursor: pointer;
+  margin: 15px;
+  width: 25px;
+  height: 25px;
+}
+
+@media (max-width: 600px) {
+  .window {
+    width: 100%;
+    right: -100%;
+  }
+  .window.visible {
+    right: 0;
+  }
+}
