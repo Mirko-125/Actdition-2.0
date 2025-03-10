@@ -84,7 +84,7 @@ const SignIn = () => {
             <div className={styles.button}>
               <div className={styles.fillarea}>
                 <div className={styles.form}>
-                  <label className={styles.textlabel} for="email-or-phone">
+                  <label className={styles.textlabel} htmlFor="email-or-phone">
                     E-mail or phone number
                   </label>
                   <input
@@ -97,7 +97,7 @@ const SignIn = () => {
                   <span className={styles.iborder}></span>
                 </div>
                 <div className={styles.form}>
-                  <label className={styles.textlabel} for="passphrase">
+                  <label className={styles.textlabel} htmlFor="passphrase">
                     Password
                   </label>
                   <input
