@@ -13,7 +13,8 @@
 
 body {
   margin: 0;
-  display: block
+  display: block;
+  cursor: crosshair;
 }
 
 /*#region Main app title screen*/
@@ -26,13 +27,13 @@ body {
   background-color: black;
   font-family: 'Jersey M54', sans-serif;
   color: white;
-  font-size: 10vw; 
+  font-size: 10vw;
   text-align: center;
-  padding: 10px; 
+  padding: 10px;
 }
 
 .title span {
-  font-size: 2vw; 
+  font-size: 2vw;
   color: pink;
 }
 
@@ -40,6 +41,7 @@ body {
   .title {
     font-size: 8vw;
   }
+
   .title span {
     font-size: 1.5vw;
   }
@@ -49,6 +51,7 @@ body {
   .title {
     font-size: 12vw;
   }
+
   .title span {
     font-size: 3vw;
   }
@@ -58,8 +61,10 @@ body {
   .title {
     font-size: 15vw;
   }
+
   .title span {
     font-size: 4vw;
   }
 }
+
 /*#endregion */

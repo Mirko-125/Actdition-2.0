@@ -1,27 +1,24 @@
-.window 
-{
+.window {
   z-index: 10;
   position: fixed;
   top: 0;
-  right: -350px; 
+  right: -350px;
   width: 350px;
   height: 100%;
-  background-color: rgb(0, 0, 0);
+  background-color: #222222;
   transition: right 0.3s ease-in-out;
 }
 
-.window.visible 
-{
+.window.visible {
   right: 0;
 }
 
-.holdup
-{
- text-align: center;
+.holdup {
+  color: white;
+  text-align: center;
 }
 
-.exit
-{
+.exit {
   cursor: pointer;
   margin: 15px;
   width: 25px;
@@ -33,6 +30,7 @@
     width: 100%;
     right: -100%;
   }
+
   .window.visible {
     right: 0;
   }
