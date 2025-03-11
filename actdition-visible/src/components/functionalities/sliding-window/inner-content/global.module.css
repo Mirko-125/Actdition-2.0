@@ -21,7 +21,17 @@
     font-size: 1.5rem;
     text-align: center;
     color: rgb(255, 255, 255);
-    /* font-family: "Roboto Condensed", sans-serif; */
+    /* font-family: 'HelveticaMedium', Arial, sans-serif; */
+}
+
+.howitworks {
+    font-family: 'HelveticaMedium', Arial, sans-serif;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .form {
@@ -42,7 +52,7 @@
 
 
 .finput[type="text"] {
-    font-family: "Roboto Condensed", sans-serif;
+    font-family: 'HelveticaMedium', Arial, sans-serif;
     font-size: 16px;
 }
 
@@ -160,7 +170,7 @@
 }
 
 .infopult {
-    font-family: "Roboto Condensed", sans-serif;
+    font-family: 'HelveticaMedium', Arial, sans-serif;
     font-size: 14px;
     display: flex;
     flex-direction: row;

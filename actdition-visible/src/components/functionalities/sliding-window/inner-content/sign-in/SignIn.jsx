@@ -1,6 +1,6 @@
 import React, { useState, Suspense, lazy } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from './SignIn.module.css';
+import styles from '../global.module.css';
 
 const Registration = lazy(() => import("../registration/Registration.jsx"));
 const ForgotPassword = lazy(() => import("../forgot-password/ForgotPasword.jsx"));
@@ -84,7 +84,7 @@ const SignIn = () => {
             <div className={styles.button}>
               <div className={styles.fillarea}>
                 <div className={styles.form}>
-                  <label className={styles.textlabel} htmlFor="email-or-phone">
+                  <label className={styles.textlabel}>
                     E-mail or phone number
                   </label>
                   <input
@@ -97,7 +97,7 @@ const SignIn = () => {
                   <span className={styles.iborder}></span>
                 </div>
                 <div className={styles.form}>
-                  <label className={styles.textlabel} htmlFor="passphrase">
+                  <label className={styles.textlabel}>
                     Password
                   </label>
                   <input
