@@ -5,10 +5,10 @@ function App() {
 
   return (
     <>
-      <Navbar />
-      <div className='title'>
-          ACTDITION<span>2.0</span>
-      </div>
+      <Navbar/>
+        <div className='title'>
+            ACTDITION<span>2.0</span>
+        </div>
       <Showcase />
     </>
   )
