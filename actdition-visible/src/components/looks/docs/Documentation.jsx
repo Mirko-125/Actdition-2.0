@@ -45,7 +45,6 @@ function Documentation() {
       }, []);
 
   return (
-    <>
       <div className={styles.documentationContainer}>
           <nav className={styles.sidebar}>
             <ul>
@@ -61,25 +60,25 @@ function Documentation() {
               ))}
             </ul>
           </nav>
-        </div>
-        <div className={styles.content}>
 
-        <section id="how-it-works" className={styles.sectionBlock}>
-          <h2>How It Works</h2>
-          <p>
-          how does this work?
-          </p>
-        </section>
+          <div className={styles.content}>
 
-        <section id="about" className={styles.sectionBlock}>
-          <h2>About</h2>
-          <p>
-          og zero bug development represent
-          </p>
-        </section>
+          <section id="how-it-works" className={styles.sectionBlock}>
+            <h2>How It Works</h2>
+            <p>
+            how does this work?
+            </p>
+          </section>
 
-    </div>
-  </>
+          <section id="about" className={styles.sectionBlock}>
+            <h2>About</h2>
+            <p>
+            og zero bug development represent
+            </p>
+          </section>
+
+          </div>
+      </div>
   )
 }
 

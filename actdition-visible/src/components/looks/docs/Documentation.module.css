@@ -1,16 +1,17 @@
 .documentationContainer {
     display: flex;
     min-height: 100vh;
-    font-family: sans-serif;
+    color: white;
 }
 
 .sidebar {
     position: sticky;
     top: 0;
     min-width: 200px;
-    background: #f9f9f9;
-    border-right: 1px solid #ddd;
-    padding: 1rem;
+    text-align: right;
+    padding-right: 25px;
+    background: #111111;
+    border-right: 1px solid #000000;
 }
 
 .sidebar ul {
