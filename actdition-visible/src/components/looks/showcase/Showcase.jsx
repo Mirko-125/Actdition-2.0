@@ -8,10 +8,10 @@ function Showcase() {
         <div className={styles.group}>
           <div className={styles.showcase}>
               <figure id={styles.showcase}>
-                  <section></section>
-                  <section></section>  
-                  <section></section>  
-                  <section></section>  
+                  <section className={styles.animation}></section>
+                  <section className={styles.animation}></section>  
+                  <section className={styles.animation}></section>  
+                  <section className={styles.animation}></section>  
               </figure>
           </div>
           <div className={styles.info}>

@@ -1,0 +1,56 @@
+.documentationContainer {
+    display: flex;
+    min-height: 100vh;
+    font-family: sans-serif;
+}
+
+.sidebar {
+    position: sticky;
+    top: 0;
+    min-width: 200px;
+    background: #f9f9f9;
+    border-right: 1px solid #ddd;
+    padding: 1rem;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.sidebar li {
+    margin-bottom: 0.5rem;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #333;
+    font-weight: normal;
+    transition: color 0.2s;
+}
+
+.sidebar a:hover {
+    color: #000;
+}
+
+
+.active {
+    font-weight: bold;
+    color: #007acc;
+}
+
+
+.content {
+    flex: 1;
+    padding: 1rem;
+}
+
+.sectionBlock {
+    margin-bottom: 3rem;
+    font-size: 32px;
+    color: white;
+}
+
+.sectionBlock h2 {
+    margin-top: 0;
+}

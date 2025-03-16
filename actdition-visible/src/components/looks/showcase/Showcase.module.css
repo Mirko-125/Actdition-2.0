@@ -2,7 +2,8 @@
 
 .group {
   display: flex;
-  flex-wrap: nowrap; /* Ensures horizontal layout on larger screens */
+  flex-wrap: nowrap;
+  /* Ensures horizontal layout on larger screens */
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -49,30 +50,34 @@
 /* Mobile: Hide Showcase, Show Only Info */
 @media (max-width: 768px) {
   .group {
-    flex-direction: column; /* Stacks content */
+    flex-direction: column;
+    /* Stacks content */
     align-items: center;
   }
 
   .showcase {
-    display: none; /* Hides animation on mobile */
+    display: none;
+    /* Hides animation on mobile */
   }
 
   .info {
     flex: 1 1 100%;
-    max-width: 90%; /* Adjusts width */
+    max-width: 90%;
+    /* Adjusts width */
     font-size: 1.5rem;
   }
 }
 
 /*#region Sections*/
-section {
+.animation {
   display: inline-block;
   position: relative;
   width: 25%;
   height: 100%;
   background-size: cover;
 }
-section:after {
+
+.animation:after {
   content: '';
   position: absolute;
   top: 0;
@@ -84,7 +89,7 @@ section:after {
   transition: all 0.5s;
 }
 
-section:nth-child(1) {
+.animation:nth-child(1) {
   -moz-animation: section-1 8s infinite;
   -webkit-animation: section-1 8s infinite;
   animation: section-1 8s infinite;
@@ -95,237 +100,357 @@ section:nth-child(1) {
 /*#region SectionsAnimations*/
 
 @-moz-keyframes section-1 {
-  0%, 20%, 100% {
+
+  0%,
+  20%,
+  100% {
     background: url("https://images.pexels.com/photos/1633791/pexels-photo-1633791.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") 0% 0%;
     -webkit-clip-path: polygon(23% 18%, 95% 13%, 100% 91%, 55% 87%);
   }
-  25%, 45% {
+
+  25%,
+  45% {
     background: url("https://unsplash.imgix.net/30/skater.jpg?fit=crop&fm=jpg&h=700&q=75&w=1050") 0% 0%;
     -webkit-clip-path: polygon(95% 10%, 100% 80%, 62% 77%, 45% 12%);
   }
-  50%, 70% {
+
+  50%,
+  70% {
     background: url("https://images.pexels.com/photos/7230238/pexels-photo-7230238.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") 0% 0%;
     -webkit-clip-path: polygon(100% 67%, 48% 63%, 28% 9%, 95% 3%);
   }
-  75%, 95% {
+
+  75%,
+  95% {
     background: url("https://ununsplash.imgix.net/40/lUUnN7VGSoWZ3noefeH7_Baker%20Beach-12.jpg?fit=crop&fm=jpg&h=700&q=75&w=1050") 0% 0%;
     -webkit-clip-path: polygon(78% 72%, 58% 34%, 95% 27%, 100% 73%);
   }
 }
+
 @-webkit-keyframes section-1 {
-  0%, 20%, 100% {
+
+  0%,
+  20%,
+  100% {
     background: url("https://images.pexels.com/photos/1633791/pexels-photo-1633791.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") 0% 0%;
     -webkit-clip-path: polygon(23% 18%, 95% 13%, 100% 91%, 55% 87%);
   }
-  25%, 45% {
+
+  25%,
+  45% {
     background: url("https://unsplash.imgix.net/30/skater.jpg?fit=crop&fm=jpg&h=700&q=75&w=1050") 0% 0%;
     -webkit-clip-path: polygon(95% 10%, 100% 80%, 62% 77%, 45% 12%);
   }
-  50%, 70% {
+
+  50%,
+  70% {
     background: url("https://images.pexels.com/photos/7230238/pexels-photo-7230238.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") 0% 0%;
     -webkit-clip-path: polygon(100% 67%, 48% 63%, 28% 9%, 95% 3%);
   }
-  75%, 95% {
+
+  75%,
+  95% {
     background: url("https://ununsplash.imgix.net/40/lUUnN7VGSoWZ3noefeH7_Baker%20Beach-12.jpg?fit=crop&fm=jpg&h=700&q=75&w=1050") 0% 0%;
     -webkit-clip-path: polygon(78% 72%, 58% 34%, 95% 27%, 100% 73%);
   }
 }
+
 @keyframes section-1 {
-  0%, 20%, 100% {
+
+  0%,
+  20%,
+  100% {
     background: url("https://images.pexels.com/photos/1633791/pexels-photo-1633791.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") 0% 0%;
     -webkit-clip-path: polygon(23% 18%, 95% 13%, 100% 91%, 55% 87%);
   }
-  25%, 45% {
+
+  25%,
+  45% {
     background: url("https://unsplash.imgix.net/30/skater.jpg?fit=crop&fm=jpg&h=700&q=75&w=1050") 0% 0%;
     -webkit-clip-path: polygon(95% 10%, 100% 80%, 62% 77%, 45% 12%);
   }
-  50%, 70% {
+
+  50%,
+  70% {
     background: url("https://images.pexels.com/photos/7230238/pexels-photo-7230238.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") 0% 0%;
     -webkit-clip-path: polygon(100% 67%, 48% 63%, 28% 9%, 95% 3%);
   }
-  75%, 95% {
+
+  75%,
+  95% {
     background: url("https://ununsplash.imgix.net/40/lUUnN7VGSoWZ3noefeH7_Baker%20Beach-12.jpg?fit=crop&fm=jpg&h=700&q=75&w=1050") 0% 0%;
     -webkit-clip-path: polygon(78% 72%, 58% 34%, 95% 27%, 100% 73%);
   }
 }
-section:nth-child(2) {
+
+.animation:nth-child(2) {
   -moz-animation: section-2 8s infinite;
   -webkit-animation: section-2 8s infinite;
   animation: section-2 8s infinite;
 }
 
 @-moz-keyframes section-2 {
-  0%, 20%, 100% {
+
+  0%,
+  20%,
+  100% {
     background: url("https://images.pexels.com/photos/1633791/pexels-photo-1633791.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") 33.33333% 0%;
     -webkit-clip-path: polygon(0% 7%, 100% 9%, 95% 93%, 5% 95%);
   }
-  25%, 45% {
+
+  25%,
+  45% {
     background: url("https://unsplash.imgix.net/30/skater.jpg?fit=crop&fm=jpg&h=700&q=75&w=1050") 33.33333% 0%;
     -webkit-clip-path: polygon(100% 3%, 95% 95%, 5% 90%, 0% 5%);
   }
-  50%, 70% {
+
+  50%,
+  70% {
     background: url("https://images.pexels.com/photos/7230238/pexels-photo-7230238.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") 33.33333% 0%;
     -webkit-clip-path: polygon(95% 83%, 5% 78%, 0% 6%, 100% 11%);
   }
-  75%, 95% {
+
+  75%,
+  95% {
     background: url("https://ununsplash.imgix.net/40/lUUnN7VGSoWZ3noefeH7_Baker%20Beach-12.jpg?fit=crop&fm=jpg&h=700&q=75&w=1050") 33.33333% 0%;
     -webkit-clip-path: polygon(5% 79%, 0% 21%, 100% 16%, 95% 83%);
   }
 }
+
 @-webkit-keyframes section-2 {
-  0%, 20%, 100% {
+
+  0%,
+  20%,
+  100% {
     background: url("https://images.pexels.com/photos/1633791/pexels-photo-1633791.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") 33.33333% 0%;
     -webkit-clip-path: polygon(0% 7%, 100% 9%, 95% 93%, 5% 95%);
   }
-  25%, 45% {
+
+  25%,
+  45% {
     background: url("https://unsplash.imgix.net/30/skater.jpg?fit=crop&fm=jpg&h=700&q=75&w=1050") 33.33333% 0%;
     -webkit-clip-path: polygon(100% 3%, 95% 95%, 5% 90%, 0% 5%);
   }
-  50%, 70% {
+
+  50%,
+  70% {
     background: url("https://images.pexels.com/photos/7230238/pexels-photo-7230238.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") 33.33333% 0%;
     -webkit-clip-path: polygon(95% 83%, 5% 78%, 0% 6%, 100% 11%);
   }
-  75%, 95% {
+
+  75%,
+  95% {
     background: url("https://ununsplash.imgix.net/40/lUUnN7VGSoWZ3noefeH7_Baker%20Beach-12.jpg?fit=crop&fm=jpg&h=700&q=75&w=1050") 33.33333% 0%;
     -webkit-clip-path: polygon(5% 79%, 0% 21%, 100% 16%, 95% 83%);
   }
 }
+
 @keyframes section-2 {
-  0%, 20%, 100% {
+
+  0%,
+  20%,
+  100% {
     background: url("https://images.pexels.com/photos/1633791/pexels-photo-1633791.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") 33.33333% 0%;
     -webkit-clip-path: polygon(0% 7%, 100% 9%, 95% 93%, 5% 95%);
   }
-  25%, 45% {
+
+  25%,
+  45% {
     background: url("https://unsplash.imgix.net/30/skater.jpg?fit=crop&fm=jpg&h=700&q=75&w=1050") 33.33333% 0%;
     -webkit-clip-path: polygon(100% 3%, 95% 95%, 5% 90%, 0% 5%);
   }
-  50%, 70% {
+
+  50%,
+  70% {
     background: url("https://images.pexels.com/photos/7230238/pexels-photo-7230238.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") 33.33333% 0%;
     -webkit-clip-path: polygon(95% 83%, 5% 78%, 0% 6%, 100% 11%);
   }
-  75%, 95% {
+
+  75%,
+  95% {
     background: url("https://ununsplash.imgix.net/40/lUUnN7VGSoWZ3noefeH7_Baker%20Beach-12.jpg?fit=crop&fm=jpg&h=700&q=75&w=1050") 33.33333% 0%;
     -webkit-clip-path: polygon(5% 79%, 0% 21%, 100% 16%, 95% 83%);
   }
 }
-section:nth-child(3) {
+
+.animation:nth-child(3) {
   -moz-animation: section-3 8s infinite;
   -webkit-animation: section-3 8s infinite;
   animation: section-3 8s infinite;
 }
 
 @-moz-keyframes section-3 {
-  0%, 20%, 100% {
+
+  0%,
+  20%,
+  100% {
     background: url("https://images.pexels.com/photos/1633791/pexels-photo-1633791.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") 66.66666% 0%;
     -webkit-clip-path: polygon(5% 11%, 100% 14%, 95% 88%, 0% 91%);
   }
-  25%, 45% {
+
+  25%,
+  45% {
     background: url("https://unsplash.imgix.net/30/skater.jpg?fit=crop&fm=jpg&h=700&q=75&w=1050") 66.66666% 0%;
     -webkit-clip-path: polygon(100% 14%, 95% 84%, 0% 91%, 5% 7%);
   }
-  50%, 70% {
+
+  50%,
+  70% {
     background: url("https://images.pexels.com/photos/7230238/pexels-photo-7230238.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") 66.66666% 0%;
     -webkit-clip-path: polygon(95% 79%, 0% 86%, 5% 7%, 100% 3%);
   }
-  75%, 95% {
+
+  75%,
+  95% {
     background: url("https://ununsplash.imgix.net/40/lUUnN7VGSoWZ3noefeH7_Baker%20Beach-12.jpg?fit=crop&fm=jpg&h=700&q=75&w=1050") 66.66666% 0%;
     -webkit-clip-path: polygon(0% 85%, 5% 14%, 100% 3%, 95% 95%);
   }
 }
+
 @-webkit-keyframes section-3 {
-  0%, 20%, 100% {
+
+  0%,
+  20%,
+  100% {
     background: url("https://images.pexels.com/photos/1633791/pexels-photo-1633791.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") 66.66666% 0%;
     -webkit-clip-path: polygon(5% 11%, 100% 14%, 95% 88%, 0% 91%);
   }
-  25%, 45% {
+
+  25%,
+  45% {
     background: url("https://unsplash.imgix.net/30/skater.jpg?fit=crop&fm=jpg&h=700&q=75&w=1050") 66.66666% 0%;
     -webkit-clip-path: polygon(100% 14%, 95% 84%, 0% 91%, 5% 7%);
   }
-  50%, 70% {
+
+  50%,
+  70% {
     background: url("https://images.pexels.com/photos/7230238/pexels-photo-7230238.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") 66.66666% 0%;
     -webkit-clip-path: polygon(95% 79%, 0% 86%, 5% 7%, 100% 3%);
   }
-  75%, 95% {
+
+  75%,
+  95% {
     background: url("https://ununsplash.imgix.net/40/lUUnN7VGSoWZ3noefeH7_Baker%20Beach-12.jpg?fit=crop&fm=jpg&h=700&q=75&w=1050") 66.66666% 0%;
     -webkit-clip-path: polygon(0% 85%, 5% 14%, 100% 3%, 95% 95%);
   }
 }
+
 @keyframes section-3 {
-  0%, 20%, 100% {
+
+  0%,
+  20%,
+  100% {
     background: url("https://images.pexels.com/photos/1633791/pexels-photo-1633791.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") 66.66666% 0%;
     -webkit-clip-path: polygon(5% 11%, 100% 14%, 95% 88%, 0% 91%);
   }
-  25%, 45% {
+
+  25%,
+  45% {
     background: url("https://unsplash.imgix.net/30/skater.jpg?fit=crop&fm=jpg&h=700&q=75&w=1050") 66.66666% 0%;
     -webkit-clip-path: polygon(100% 14%, 95% 84%, 0% 91%, 5% 7%);
   }
-  50%, 70% {
+
+  50%,
+  70% {
     background: url("https://images.pexels.com/photos/7230238/pexels-photo-7230238.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") 66.66666% 0%;
     -webkit-clip-path: polygon(95% 79%, 0% 86%, 5% 7%, 100% 3%);
   }
-  75%, 95% {
+
+  75%,
+  95% {
     background: url("https://ununsplash.imgix.net/40/lUUnN7VGSoWZ3noefeH7_Baker%20Beach-12.jpg?fit=crop&fm=jpg&h=700&q=75&w=1050") 66.66666% 0%;
     -webkit-clip-path: polygon(0% 85%, 5% 14%, 100% 3%, 95% 95%);
   }
 }
-section:nth-child(4) {
+
+.animation:nth-child(4) {
   -moz-animation: section-4 8s infinite;
   -webkit-animation: section-4 8s infinite;
   animation: section-4 8s infinite;
 }
 
 @-moz-keyframes section-4 {
-  0%, 20%, 100% {
+
+  0%,
+  20%,
+  100% {
     background: url("https://images.pexels.com/photos/1633791/pexels-photo-1633791.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") 99.99999% 0%;
     -webkit-clip-path: polygon(5% 18%, 89% 21%, 62% 73%, 0% 83%);
   }
-  25%, 45% {
+
+  25%,
+  45% {
     background: url("https://unsplash.imgix.net/30/skater.jpg?fit=crop&fm=jpg&h=700&q=75&w=1050") 99.99999% 0%;
     -webkit-clip-path: polygon(57% 31%, 45% 67%, 0% 77%, 5% 18%);
   }
-  50%, 70% {
+
+  50%,
+  70% {
     background: url("https://images.pexels.com/photos/7230238/pexels-photo-7230238.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") 99.99999% 0%;
     -webkit-clip-path: polygon(45% 57%, 0% 67%, 5% 8%, 72% 12%);
   }
-  75%, 95% {
+
+  75%,
+  95% {
     background: url("https://ununsplash.imgix.net/40/lUUnN7VGSoWZ3noefeH7_Baker%20Beach-12.jpg?fit=crop&fm=jpg&h=700&q=75&w=1050") 99.99999% 0%;
     -webkit-clip-path: polygon(0% 77%, 5% 18%, 47% 21%, 32% 67%);
   }
 }
+
 @-webkit-keyframes section-4 {
-  0%, 20%, 100% {
+
+  0%,
+  20%,
+  100% {
     background: url("https://images.pexels.com/photos/1633791/pexels-photo-1633791.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") 99.99999% 0%;
     -webkit-clip-path: polygon(5% 18%, 89% 21%, 62% 73%, 0% 83%);
   }
-  25%, 45% {
+
+  25%,
+  45% {
     background: url("https://unsplash.imgix.net/30/skater.jpg?fit=crop&fm=jpg&h=700&q=75&w=1050") 99.99999% 0%;
     -webkit-clip-path: polygon(57% 31%, 45% 67%, 0% 77%, 5% 18%);
   }
-  50%, 70% {
+
+  50%,
+  70% {
     background: url("https://images.pexels.com/photos/7230238/pexels-photo-7230238.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") 99.99999% 0%;
     -webkit-clip-path: polygon(45% 57%, 0% 67%, 5% 8%, 72% 12%);
   }
-  75%, 95% {
+
+  75%,
+  95% {
     background: url("https://ununsplash.imgix.net/40/lUUnN7VGSoWZ3noefeH7_Baker%20Beach-12.jpg?fit=crop&fm=jpg&h=700&q=75&w=1050") 99.99999% 0%;
     -webkit-clip-path: polygon(0% 77%, 5% 18%, 47% 21%, 32% 67%);
   }
 }
+
 @keyframes section-4 {
-  0%, 20%, 100% {
+
+  0%,
+  20%,
+  100% {
     background: url("https://images.pexels.com/photos/1633791/pexels-photo-1633791.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") 99.99999% 0%;
     -webkit-clip-path: polygon(5% 18%, 89% 21%, 62% 73%, 0% 83%);
   }
-  25%, 45% {
+
+  25%,
+  45% {
     background: url("https://unsplash.imgix.net/30/skater.jpg?fit=crop&fm=jpg&h=700&q=75&w=1050") 99.99999% 0%;
     -webkit-clip-path: polygon(57% 31%, 45% 67%, 0% 77%, 5% 18%);
   }
-  50%, 70% {
+
+  50%,
+  70% {
     background: url("https://images.pexels.com/photos/7230238/pexels-photo-7230238.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") 99.99999% 0%;
     -webkit-clip-path: polygon(45% 57%, 0% 67%, 5% 8%, 72% 12%);
   }
-  75%, 95% {
+
+  75%,
+  95% {
     background: url("https://ununsplash.imgix.net/40/lUUnN7VGSoWZ3noefeH7_Baker%20Beach-12.jpg?fit=crop&fm=jpg&h=700&q=75&w=1050") 99.99999% 0%;
     -webkit-clip-path: polygon(0% 77%, 5% 18%, 47% 21%, 32% 67%);
   }
 }
+
 /*#endregion */
