@@ -2,8 +2,11 @@ import {React, useState, useEffect } from 'react';
 import styles from './Documentation.module.css';
 
 const sectionsData = [
-    { id: 'how-it-works', label: 'How It Works' },
-    { id: 'about',        label: 'About' }
+    { id: 'how-it-works', label: 'How it works' },
+    { id: 'producer', label: 'Producer' },
+    { id: 'casting-director', label: 'Casting director'},
+    { id: 'actor', label: 'Actor'},
+    { id: 'about', label: 'About' }
   ];
 
 function Documentation() {
@@ -42,23 +45,24 @@ function Documentation() {
       }, []);
 
   return (
-    <div className={styles.documentationContainer}>
-      <nav className={styles.sidebar}>
-        <ul>
-          {sectionsData.map((section) => (
-            <li key={section.id}>
-              <a
-                href={`#${section.id}`}
-                className={activeSection === section.id ? styles.active : ''}
-              >
-                {section.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-
-      <div className={styles.content}>
+    <>
+      <div className={styles.documentationContainer}>
+          <nav className={styles.sidebar}>
+            <ul>
+              {sectionsData.map((section) => (
+                <li key={section.id}>
+                  <a
+                    href={`#${section.id}`}
+                    className={activeSection === section.id ? styles.active : ''}
+                  >
+                    {section.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+        <div className={styles.content}>
 
         <section id="how-it-works" className={styles.sectionBlock}>
           <h2>How It Works</h2>
@@ -74,8 +78,8 @@ function Documentation() {
           </p>
         </section>
 
-      </div>
     </div>
+  </>
   )
 }
 

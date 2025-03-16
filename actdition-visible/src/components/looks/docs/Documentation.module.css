@@ -41,6 +41,7 @@
 
 
 .content {
+    font-family: 'LobsterTwo-Regular', sans-serif;
     flex: 1;
     padding: 1rem;
 }

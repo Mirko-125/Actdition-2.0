@@ -24,6 +24,11 @@ body {
   src: url('/fonts/Jersey M54.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'LobsterTwo-Regular';
+  src: url('/fonts/LobsterTwo-Regular.ttf') format('truetype');
+}
+
 .title {
   background-color: black;
   font-family: 'Jersey M54', sans-serif;
