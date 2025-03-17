@@ -73,7 +73,7 @@ function Documentation() {
           <section id="about" className={styles.sectionBlock}>
             <h2>About</h2>
             <p>
-            og zero bug development represent
+            og zero bug development
             </p>
           </section>
 

@@ -1,7 +1,7 @@
 .documentationContainer {
     display: flex;
+    flex-direction: row;
     min-height: 100vh;
-    color: white;
 }
 
 .sidebar {
@@ -9,9 +9,10 @@
     top: 0;
     min-width: 200px;
     text-align: right;
+    font-size: 18px;
     padding-right: 25px;
     background: #111111;
-    border-right: 1px solid #000000;
+    border-right: 5px solid hsl(130, 13%, 57%)
 }
 
 .sidebar ul {
@@ -25,19 +26,17 @@
 
 .sidebar a {
     text-decoration: none;
-    color: #333;
-    font-weight: normal;
+    color: #ffffff;
     transition: color 0.2s;
 }
 
 .sidebar a:hover {
-    color: #000;
+    color: hsl(130, 13%, 57%);
 }
 
 
 .active {
-    font-weight: bold;
-    color: #007acc;
+    color: hsl(130, 13%, 57%);
 }
 
 
@@ -45,6 +44,7 @@
     font-family: 'LobsterTwo-Regular', sans-serif;
     flex: 1;
     padding: 1rem;
+    text-align: center;
 }
 
 .sectionBlock {
@@ -55,4 +55,10 @@
 
 .sectionBlock h2 {
     margin-top: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
 }
