@@ -54,7 +54,7 @@ function Navbar( { Page = null } ) {
                     ) : 
                     (
                         <>
-                            <li className={styles.link}><a onClick={() => navigate("/how-it-works")}>How it works & About<span className={styles.circle} data-color="how-it-works">B</span><span className={styles.line}></span></a>
+                            <li className={styles.link}><a onClick={() => navigate("/manual")}>How it works & About<span className={styles.circle} data-color="how-it-works">B</span><span className={styles.line}></span></a>
                             </li>
                         </>
                     )

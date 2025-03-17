@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from '../components/functionalities/navbar/Navbar.jsx';
 import Documentation from "../components/looks/docs/Documentation.jsx";
 
-function HowItWorks() {
+function Manual() {
   return (
     <>
       <Navbar Page={1}/>
@@ -11,4 +11,4 @@ function HowItWorks() {
   );
 }
 
-export default HowItWorks;
+export default Manual;
