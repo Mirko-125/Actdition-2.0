@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "UpZRiFC3JlSCf3EQpNe3D8RyRFEb8s/Gq8YYWcdDzUE=",
+  "Source": "ActApp.Api",
+  "BasePath": "_content/ActApp.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
