@@ -1,7 +1,3 @@
-# Configuration files
-appsettings.Development.secret.json
-
-# Editor-specific files
 *.swp
 *.*~
 project.lock.json
