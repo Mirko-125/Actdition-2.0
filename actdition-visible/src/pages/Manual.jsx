@@ -6,7 +6,7 @@ function Manual() {
   return (
     <>
       <Navbar Page={1}/>
-      <Documentation />
+      <Documentation/>
     </>
   );
 }
