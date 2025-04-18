@@ -1,14 +1,15 @@
 import { React, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../global.module.css";
-import ThreeRadioButtons from "../../../buttons/ThreeRadioButtons";
+import ThreeRadioButtons from "../../../buttons/radio/ThreeRadioButtons/ThreeRadioButtons";
 
 const Registration = () => {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
-  const [choice, setChoice] = useState("admin");
+  const [position, setPosition] = useState("admin");
   const [formData, setFormData] = useState({
     name: "",
+    username: "",
     email: "",
     phone: "",
     passphrase: "",
@@ -28,6 +29,15 @@ const Registration = () => {
 
     if (!formData.name) {
       setErrorMessage("Name is required!");
+      setTimeout(() => {
+        setErrorMessage("");
+      }, 4000);
+      return;
+    }
+
+    const usernamePattern = /^(?=[\w.-]{5,20}$)(?:[\d_.-]*[a-zA-Z]){3}[\w.-]*$/; // change this for what you need
+    if (!formData.username) {
+      setErrorMessage("Username is required!");
       setTimeout(() => {
         setErrorMessage("");
       }, 4000);
@@ -100,6 +110,17 @@ const Registration = () => {
           <span className={styles.iborder}></span>
         </div>
         <div className={styles.form}>
+          <label className={styles.textlabel}>Username</label>
+          <input
+            className={styles.finput}
+            type="text"
+            id="username"
+            name="username"
+            onChange={handleChange}
+          />
+          <span className={styles.iborder}></span>
+        </div>
+        <div className={styles.form}>
           <label className={styles.textlabel}>E-mail</label>
           <input
             className={styles.finput}
@@ -151,8 +172,8 @@ const Registration = () => {
             { value: "castingdirector", label: "Casting director" },
             { value: "producer", label: "Producer" },
           ]}
-          selected={choice}
-          onChange={(e) => setChoice(e.target.value)}
+          selected={position}
+          onChange={(e) => setPosition(e.target.value)}
         />
         <br />
         <button className={styles.submit} onClick={validateForm}>
