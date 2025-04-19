@@ -1,12 +1,15 @@
 import { React, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../global.module.css";
-import ThreeRadioButtons from "../../../buttons/radio/ThreeRadioButtons/ThreeRadioButtons";
+import RadioButtonsHorizontal from "../../../buttons/radio/RadioButtonsHorizontal/RadioButtonsHorizontal";
+import RadioButtonsVertical from "../../../buttons/radio/RadioButtonsVertical/RadioButtonsVertical";
 
 const Registration = () => {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
+  const [gender, setGender] = useState("prefer not to say");
   const [position, setPosition] = useState("admin");
+
   const [formData, setFormData] = useState({
     name: "",
     username: "",
@@ -120,6 +123,16 @@ const Registration = () => {
           />
           <span className={styles.iborder}></span>
         </div>
+        <RadioButtonsHorizontal
+          title="Gender"
+          name="gender"
+          selected={gender}
+          onChange={(e) => setGender(e.target.value)}
+          options={[
+            { value: "f", label: "♀" },
+            { value: "m", label: "♂" },
+          ]}
+        />
         <div className={styles.form}>
           <label className={styles.textlabel}>E-mail</label>
           <input
@@ -164,7 +177,7 @@ const Registration = () => {
           />
           <span className={styles.iborder}></span>
         </div>
-        <ThreeRadioButtons
+        <RadioButtonsVertical
           title="Position"
           name="button"
           options={[
@@ -175,7 +188,6 @@ const Registration = () => {
           selected={position}
           onChange={(e) => setPosition(e.target.value)}
         />
-        <br />
         <button className={styles.submit} onClick={validateForm}>
           <span className="text">Register</span>
           <span>Hello</span>

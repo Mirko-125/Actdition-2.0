@@ -1,0 +1,32 @@
+.radiogroup {
+    display: flex;
+    flex-direction: column;
+    background-color: #222;
+    padding: 1rem;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.textlabel {
+    color: white;
+    cursor: pointer;
+    text-align: center;
+}
+
+.radioitem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.radioitem input[type='radio'] {
+    order: -1;
+    width: 20px;
+    height: 20px;
+    accent-color: hsl(130, 13%, 57%);
+}
+
+.radiolabeltext {
+    color: white;
+}

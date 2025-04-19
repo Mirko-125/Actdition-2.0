@@ -12,9 +12,6 @@ function App() {
       <Showcase />
       <br />
       <br />
-      <p className='regards'>
-        this project has been built with passion and it is a remaster from <a href='https://mirko-125.github.io'>my</a> university project 
-      </p>
     </>
   )
 }

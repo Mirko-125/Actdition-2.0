@@ -1,7 +1,7 @@
 import { React } from "react";
-import styles from './ThreeRadioButtons.module.css';
+import styles from './RadioButtonsVertical.module.css';
 
-function ThreeRadioButtons({ title , options, name, selected, onChange }) {
+function RadioButtonsVertical({ title , options, name, selected, onChange }) {
   {
     return (
       <div className={styles.radiogroup}>
@@ -23,4 +23,4 @@ function ThreeRadioButtons({ title , options, name, selected, onChange }) {
   }
 }
 
-export default ThreeRadioButtons;
+export default RadioButtonsVertical;
