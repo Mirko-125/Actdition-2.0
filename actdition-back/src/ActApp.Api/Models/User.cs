@@ -1,19 +1,24 @@
-namespace Actdition
+using ActApp.Api;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ActApp.Api.Models
 {
     public class User
     {
-        [Required]
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string LastName { get; set; }
-        public string Username { get; set; }
-        public char Gender { get; set; }
-        public int Phone { get; set; }
-        public string EMail { get; set; }
-        public string Passphrase { get; set; }
-        public int Position { get; set; } // maybe needed
+        public required string Name { get; set; }
+        public required string LastName { get; set; }
+        public required string Username { get; set; }
+        public required char Gender { get; set; }
+        public required string Phone { get; set; }
+        public required string EMail { get; set; }
+        public required string Passphrase { get; set; }
+        public required string Position { get; set; }
     }
-
+    /*
     public class Actor : User
     {
         public double Height { get; set; }
@@ -21,7 +26,7 @@ namespace Actdition
         public DateTime Birthdate { get; set; }
         public string ProfilePicture { get; set; }
         public string Biography { get; set; }
-        public List<Movies> PastMovies { get; set; }
+        // public List<Movies> PastMovies { get; set; }
 
         // list that contains what he did except acting such as writing / directing and producing, look that up more
     }
@@ -36,8 +41,9 @@ namespace Actdition
         public DateTime Birthdate { get; set; }
         public string ProfilePicture { get; set; }
         public string Biography { get; set; }
-        public List<Movies> PastMovies { get; set; }
+        // public List<Movies> PastMovies { get; set; }
         public string ProductionCode { get; set; }
 
     }
+    */
 }

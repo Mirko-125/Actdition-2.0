@@ -7,11 +7,12 @@ import RadioButtonsVertical from "../../../buttons/radio/RadioButtonsVertical/Ra
 const Registration = () => {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
-  const [gender, setGender] = useState("prefer not to say");
+  const [gender, setGender] = useState("o");
   const [position, setPosition] = useState("admin");
 
   const [formData, setFormData] = useState({
     name: "",
+    lastname: "",
     username: "",
     email: "",
     phone: "",
@@ -21,14 +22,24 @@ const Registration = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    setFormData((fd) => ({ ...fd, [name]: value }));
   };
 
+  const trimName = () => {
+    const parts = formData.name.trim().split(/\s+/);
+    const first = parts[0] || "";
+    const last = parts.length > 1 ? parts.slice(1).join(" ") : "";
+
+    setFormData((fd) => ({
+      ...fd,
+      name: first,
+      lastname: last,
+    }));
+  };
   const validateForm = async (event) => {
     event.preventDefault();
+
+    const payload = { ...formData, gender, position };
 
     if (!formData.name) {
       setErrorMessage("Name is required!");
@@ -62,7 +73,7 @@ const Registration = () => {
       return;
     }
 
-    const phonePattern = /^\d{10}$/;
+    const phonePattern = /^\d{13}$/;
     if (!formData.phone) {
       setErrorMessage("Phone number is required!");
       setTimeout(() => {
@@ -93,7 +104,36 @@ const Registration = () => {
       return;
     }
 
-    navigate("/page");
+    try {
+      const res = await fetch("http://localhost:5135/api/Users", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        throw new Error(`Server error: ${res.status}`);
+      }
+
+      const result = await res.json();
+      console.log(res.status);
+      switch (result.position) {
+        case "actor":
+          console.log(result.position);
+          break;
+        case "castingdirector":
+          console.log(result.position);
+          break;
+        case "producer":
+          console.log(result.position);
+          break;
+        default:
+          throw new Error(`Server error: ${res.status}, out of bounds son`);
+      }
+    } catch (err) {
+      setErrorMessage(err.message);
+      setTimeout(() => setErrorMessage(""), 4000);
+    }
   };
 
   return (
@@ -109,6 +149,7 @@ const Registration = () => {
             id="name"
             name="name"
             onChange={handleChange}
+            onBlur={trimName}
           />
           <span className={styles.iborder}></span>
         </div>
