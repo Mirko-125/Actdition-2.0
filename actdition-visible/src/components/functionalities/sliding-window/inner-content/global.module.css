@@ -196,7 +196,8 @@
 }
 
 .error {
-    color: #f10048
+    color: #f10048;
+    text-align: center;
 }
 
 .googlebutton {

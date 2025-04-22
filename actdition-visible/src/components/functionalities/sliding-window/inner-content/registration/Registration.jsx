@@ -112,7 +112,8 @@ const Registration = () => {
       });
 
       if (!res.ok) {
-        throw new Error(`Server error: ${res.status}`);
+        // throw new Error(`Server error: ${res.status}`);
+        setErrorMessage(`Server error: ${res.status}`);
       }
 
       const result = await res.json();
@@ -128,7 +129,8 @@ const Registration = () => {
           console.log(result.position);
           break;
         default:
-          throw new Error(`Server error: ${res.status}, out of bounds son`);
+          // throw new Error(`Server error: ${res.status}, out of bounds son`);
+          setErrorMessage(`Server error: ${res.status}, out of bounds son`)
       }
     } catch (err) {
       setErrorMessage(err.message);
