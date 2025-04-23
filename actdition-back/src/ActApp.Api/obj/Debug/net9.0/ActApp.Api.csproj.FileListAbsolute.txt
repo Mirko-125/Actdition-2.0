@@ -133,3 +133,11 @@ D:\Projects\Actdition-2.0\actdition-back\src\ActApp.Api\obj\Debug\net9.0\refint\
 D:\Projects\Actdition-2.0\actdition-back\src\ActApp.Api\obj\Debug\net9.0\ActApp.Api.pdb
 D:\Projects\Actdition-2.0\actdition-back\src\ActApp.Api\obj\Debug\net9.0\ActApp.Api.genruntimeconfig.cache
 D:\Projects\Actdition-2.0\actdition-back\src\ActApp.Api\obj\Debug\net9.0\ref\ActApp.Api.dll
+D:\Projects\Actdition-2.0\actdition-back\src\ActApp.Api\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\Projects\Actdition-2.0\actdition-back\src\ActApp.Api\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\Projects\Actdition-2.0\actdition-back\src\ActApp.Api\bin\Debug\net9.0\Microsoft.Extensions.Identity.Core.dll
+D:\Projects\Actdition-2.0\actdition-back\src\ActApp.Api\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Projects\Actdition-2.0\actdition-back\src\ActApp.Api\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Projects\Actdition-2.0\actdition-back\src\ActApp.Api\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+D:\Projects\Actdition-2.0\actdition-back\src\ActApp.Api\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+D:\Projects\Actdition-2.0\actdition-back\src\ActApp.Api\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll

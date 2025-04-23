@@ -86,7 +86,7 @@ const SignIn = () => {
               <div className={styles.fillarea}>
                 <div className={styles.form}>
                   <label className={styles.textlabel}>
-                    E-mail or phone number
+                    E-mail, username or phone
                   </label>
                   <input
                     className={styles.finput}
