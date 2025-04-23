@@ -1,5 +1,6 @@
 using ActApp.Api;
 using ActApp.Api.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -16,15 +17,14 @@ namespace ActApp.Api.Controllers
             _context = context;
         }
 
-        [HttpPost]
-        public async Task<ActionResult<User>> PostUser(User user)
+        [HttpPost("register")]
+        public async Task<ActionResult<User>> Register(User user, [FromServices] IPasswordHasher<User> hasher)
         {
+            user.Passphrase = hasher.HashPassword(user, user.Passphrase);
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
-
             return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
         }
-
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(int id)
         {
