@@ -33,7 +33,7 @@ namespace ActApp.Api.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login(LogInDto dto, [FromServices] IPasswordHasher<User> hasher, [FromServices] IConfiguration config)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(u =>
+            var user = await _context.Users.SingleOrDefaultAsync(u =>
                 u.Username == dto.Identifier ||
                 u.EMail == dto.Identifier ||
                 u.Phone == dto.Identifier);

@@ -141,3 +141,5 @@ D:\Projects\Actdition-2.0\actdition-back\src\ActApp.Api\bin\Debug\net9.0\Microso
 D:\Projects\Actdition-2.0\actdition-back\src\ActApp.Api\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
 D:\Projects\Actdition-2.0\actdition-back\src\ActApp.Api\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
 D:\Projects\Actdition-2.0\actdition-back\src\ActApp.Api\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Projects\Actdition-2.0\actdition-back\src\ActApp.Api\bin\Debug\net9.0\DotNetEnv.dll
+D:\Projects\Actdition-2.0\actdition-back\src\ActApp.Api\bin\Debug\net9.0\Sprache.dll
