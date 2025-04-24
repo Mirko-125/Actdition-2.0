@@ -11,10 +11,18 @@ const ComponentMap = {
 };
 
 const SignIn = () => {
-  const [username, setUsername] = useState("");
-  const [passphrase, setPassphrase] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    identifier: "",
+    passphrase: ""
+  })
+
+  const handleChange = (event) =>
+  {
+    const { name, value } = event.target;
+    setFormData((fd) => ({ ...fd, [name]: value }));
+  }
 
   const [isChosen, setChoice] = useState(null);
 
@@ -29,38 +37,30 @@ const SignIn = () => {
     setChoice(null);
   };
 
-  
-  // #region Validaton
-  
   const validateForm = async (event) => {
     event.preventDefault();
+    console.log(formData);
+    // check if user exists and rediecting
+    try {
+      const res = await fetch("http://localhost:5135/api/Users/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    // Mock API call to validate user credentials
-    // const isValidUser = await mockApiCall(username, passphrase);
-    const isValidUser = false;
-    console.log(username, passphrase);
+      if (!res.ok) {
+        // throw new Error(`Server error: ${res.status}`);
+        setErrorMessage(`Server error: ${res.status}`);
+      }
 
-    if (!username || !passphrase) {
-      setErrorMessage("Username and password are required!");
-      setTimeout(() => {
-        setErrorMessage("");s
-      }, 4000);
-      return;
-    }
-
-    if (isValidUser) {
-      setErrorMessage("");
-      navigate("/new-arrivals");
-    } else {
-      setErrorMessage("Invalid username or password!");
-      setTimeout(() => {
-        setErrorMessage("");
-      }, 4000);
-      return;
+      const result = await res.json();
+      console.log(result.token);
+      console.log(res.status);
+    } catch (err) {
+      setErrorMessage(err.message);
+      setTimeout(() => setErrorMessage(""), 4000);
     }
   };
-
-  // #endregion
 
   return (
     <>
@@ -91,9 +91,9 @@ const SignIn = () => {
                   <input
                     className={styles.finput}
                     type="text"
-                    id="email-or-phone"
-                    name="email-or-phone"
-                    onChange={(e) => setUsername(e.target.value)}
+                    id="identifier"
+                    name="identifier"
+                    onChange={handleChange}
                   />
                   <span className={styles.iborder}></span>
                 </div>
@@ -106,7 +106,7 @@ const SignIn = () => {
                     type="password"
                     id="passphrase"
                     name="passphrase"
-                    onChange={(e) => setPassphrase(e.target.value)}
+                    onChange={handleChange}
                   />
                   <span className={styles.iborder}></span>
                 </div>

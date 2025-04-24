@@ -2,8 +2,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Identity;
 using ActApp.Api.Models;
+using DotNetEnv;
 
-DotNetEnv.Env.Load();
+Env.Load();
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

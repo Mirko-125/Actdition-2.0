@@ -1,3 +1,6 @@
+# Local environment variables
+.env
+
 *.swp
 *.*~
 project.lock.json
@@ -42,6 +45,3 @@ bld/
 msbuild.log
 msbuild.err
 msbuild.wrn
-
-# Local environment variables
-.env
