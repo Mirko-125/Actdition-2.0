@@ -8,13 +8,13 @@ namespace ActApp.Api.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int Id { get; set; } // unique
         public required string Name { get; set; }
         public required string LastName { get; set; }
-        public required string Username { get; set; }
+        public required string Username { get; set; } // unique
         public required char Gender { get; set; }
-        public required string Phone { get; set; }
-        public required string EMail { get; set; }
+        public required string Phone { get; set; } // unique
+        public required string EMail { get; set; } // unique
         public required string Passphrase { get; set; }
         public required string Position { get; set; }
     }

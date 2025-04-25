@@ -8,6 +8,7 @@ using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.CompilerServices;
 
 namespace ActApp.Api.Controllers
 {
@@ -30,6 +31,17 @@ namespace ActApp.Api.Controllers
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
         }
+        [HttpGet("checkavailability")]
+        public async Task<ActionResult<User>> CheckAvailability(string identifier)
+        {
+            var user = await _context.Users.SingleOrDefaultAsync(u =>
+                u.Username == identifier ||
+                u.EMail == identifier ||
+                u.Phone == identifier);
+            if (user == null) return Ok();
+            return BadRequest();
+        }
+
         [HttpPost("login")]
         public async Task<IActionResult> Login(LogInDto dto, [FromServices] IPasswordHasher<User> hasher, [FromServices] IConfiguration config)
         {

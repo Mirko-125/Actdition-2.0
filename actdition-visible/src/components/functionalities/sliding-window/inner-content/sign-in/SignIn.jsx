@@ -30,7 +30,6 @@ const SignIn = () => {
 
   const handleChoice = (choice) => {
     setChoice(choice);
-    console.log("Choice is: ", choice);
   };
 
   const handleReturn = () => {
@@ -39,7 +38,6 @@ const SignIn = () => {
 
   const validateForm = async (event) => {
     event.preventDefault();
-    console.log(formData);
     // check if user exists and rediecting
     try {
       const res = await fetch("http://localhost:5135/api/Users/login", {
@@ -54,8 +52,8 @@ const SignIn = () => {
       }
 
       const result = await res.json();
-      console.log(result.token);
       console.log(res.status);
+      console.log(result.token);
     } catch (err) {
       setErrorMessage(err.message);
       setTimeout(() => setErrorMessage(""), 4000);

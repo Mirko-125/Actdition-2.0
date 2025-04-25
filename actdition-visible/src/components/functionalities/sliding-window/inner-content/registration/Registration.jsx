@@ -20,6 +20,21 @@ const Registration = () => {
     c_passphrase: "",
   });
 
+  const checkavailAbility = async (identifier) =>
+  {
+    try {
+      const response = await fetch(`http://localhost:5135/api/Users/checkavailability?identifier=${identifier}`);
+      console.log(response);
+      if(response.status == 400)
+      {
+          console.log(`${identifier} is already taken.`);
+          setErrorMessage(`${identifier} is already taken.`)
+      }
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((fd) => ({ ...fd, [name]: value }));
@@ -38,6 +53,8 @@ const Registration = () => {
   };
   const validateForm = async (event) => {
     event.preventDefault();
+
+    checkavailAbility(formData.username);
 
     const payload = { ...formData, gender, position };
 
