@@ -18,14 +18,14 @@ namespace ActApp.Api.Models
         public required string Passphrase { get; set; }
         public required string Position { get; set; }
     }
-    /*
+
     public class Actor : User
     {
-        public double Height { get; set; }
-        public double Weight { get; set; }
-        public DateTime Birthdate { get; set; }
-        public string ProfilePicture { get; set; }
-        public string Biography { get; set; }
+        public required double Height { get; set; }
+        public required double Weight { get; set; }
+        public required DateTime Birthdate { get; set; }
+        public required string ProfilePicture { get; set; }
+        public required string Biography { get; set; }
         // public List<Movies> PastMovies { get; set; }
 
         // list that contains what he did except acting such as writing / directing and producing, look that up more
@@ -33,17 +33,16 @@ namespace ActApp.Api.Models
 
     public class CastingDirector : User
     {
-        public string ProductionCode { get; set; }
+        public required string ProductionCode { get; set; }
     }
 
     public class Producer : User
     {
-        public DateTime Birthdate { get; set; }
-        public string ProfilePicture { get; set; }
-        public string Biography { get; set; }
+        public required DateTime Birthdate { get; set; }
+        public required string ProfilePicture { get; set; }
+        public required string Biography { get; set; }
         // public List<Movies> PastMovies { get; set; }
-        public string ProductionCode { get; set; }
+        public required string ProductionCode { get; set; }
 
     }
-    */
 }

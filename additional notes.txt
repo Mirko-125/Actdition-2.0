@@ -2,3 +2,7 @@ https://dndkit.com/
 
 the animation should have it's time variable, so they would be synched when
 called in multiple instances when on one page
+
+https://www.gsap.com/docs/v3/Installation
+
+check this out for animations
