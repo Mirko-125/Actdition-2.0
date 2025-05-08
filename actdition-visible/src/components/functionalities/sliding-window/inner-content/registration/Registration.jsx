@@ -132,23 +132,12 @@ const Registration = () => {
         // throw new Error(`Server error: ${res.status}`);
         setErrorMessage(`Server error: ${res.status}`);
       }
-
-      const result = await res.json();
+      // res is ok further on
+      const result = await res.json(); // the unfinished user is stored in the result object
       console.log(res.status);
-      switch (result.position) {
-        case "actor":
-          console.log(result.position);
-          break;
-        case "castingdirector":
-          console.log(result.position);
-          break;
-        case "producer":
-          console.log(result.position);
-          break;
-        default:
-          // throw new Error(`Server error: ${res.status}, out of bounds son`);
-          setErrorMessage(`Server error: ${res.status}, out of bounds son`)
-      }
+      
+      sessionStorage.setItem("unfinished user", JSON.stringify(result));
+      navigate('/complete-profile');
     } catch (err) {
       setErrorMessage(err.message);
       setTimeout(() => setErrorMessage(""), 4000);

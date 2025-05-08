@@ -82,5 +82,15 @@ namespace ActApp.Api.Controllers
             if (user == null) return NotFound();
             return user;
         }
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<User>> DeleteUser(int id)
+        {
+            var user = await _context.Users.FindAsync(id);
+            if (user == null) return NotFound();
+            _context.Users.Remove(user);
+            await _context.SaveChangesAsync();
+            if (user == null) return Ok();
+            return BadRequest();
+        }
     }
 }

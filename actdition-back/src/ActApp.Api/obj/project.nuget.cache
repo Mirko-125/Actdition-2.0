@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9yL/NPzPuGQ=",
+  "dgSpecHash": "8FAzWK6nx+I=",
   "success": true,
-  "projectFilePath": "D:\\Projects\\Actdition-2.0\\actdition-back\\src\\ActApp.Api\\ActApp.Api.csproj",
+  "projectFilePath": "D:\\Projects\\Actdition-Remake\\actdition-back\\src\\ActApp.Api\\ActApp.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mirko\\.nuget\\packages\\dotnetenv\\3.1.1\\dotnetenv.3.1.1.nupkg.sha512",
     "C:\\Users\\Mirko\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

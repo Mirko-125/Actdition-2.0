@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\Actdition-2.0\\actdition-back\\src\\ActApp.Api\\ActApp.Api.csproj": {}
+    "D:\\Projects\\Actdition-Remake\\actdition-back\\src\\ActApp.Api\\ActApp.Api.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\Actdition-2.0\\actdition-back\\src\\ActApp.Api\\ActApp.Api.csproj": {
+    "D:\\Projects\\Actdition-Remake\\actdition-back\\src\\ActApp.Api\\ActApp.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\Actdition-2.0\\actdition-back\\src\\ActApp.Api\\ActApp.Api.csproj",
+        "projectUniqueName": "D:\\Projects\\Actdition-Remake\\actdition-back\\src\\ActApp.Api\\ActApp.Api.csproj",
         "projectName": "ActApp.Api",
-        "projectPath": "D:\\Projects\\Actdition-2.0\\actdition-back\\src\\ActApp.Api\\ActApp.Api.csproj",
+        "projectPath": "D:\\Projects\\Actdition-Remake\\actdition-back\\src\\ActApp.Api\\ActApp.Api.csproj",
         "packagesPath": "C:\\Users\\Mirko\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Actdition-2.0\\actdition-back\\src\\ActApp.Api\\obj\\",
+        "outputPath": "D:\\Projects\\Actdition-Remake\\actdition-back\\src\\ActApp.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Mirko\\AppData\\Roaming\\NuGet\\NuGet.Config"
