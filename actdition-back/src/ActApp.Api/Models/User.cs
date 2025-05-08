@@ -21,10 +21,10 @@ namespace ActApp.Api.Models
 
     public class Actor : User
     {
+        public required string ProfilePicture { get; set; }
         public required double Height { get; set; }
         public required double Weight { get; set; }
         public required DateTime Birthdate { get; set; }
-        public required string ProfilePicture { get; set; }
         public required string Biography { get; set; }
         // public List<Movies> PastMovies { get; set; }
 
@@ -33,13 +33,14 @@ namespace ActApp.Api.Models
 
     public class CastingDirector : User
     {
+        public required string ProfilePicture { get; set; }
         public required string ProductionCode { get; set; }
     }
 
     public class Producer : User
     {
-        public required DateTime Birthdate { get; set; }
         public required string ProfilePicture { get; set; }
+        public required DateTime Birthdate { get; set; }
         public required string Biography { get; set; }
         // public List<Movies> PastMovies { get; set; }\
         public required string Production { get; set; } // it should be the production prop, so they would find the same one 
