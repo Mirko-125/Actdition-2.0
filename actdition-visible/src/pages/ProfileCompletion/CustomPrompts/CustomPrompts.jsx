@@ -8,6 +8,13 @@ function CustomPrompts( { unfinished_user } )
 
     // ili da obrises kreaciju korisnika pri registraciji, ili da ovde napravis potpunog registrovanog korisnika pa da ga obrises iz prethodnog pokusaja
 
+    // double value input
+    // date picker
+    // textbox
+
+    // fetch dropdown
+
+
     switch (unfinished_user.position) {
         case "actor":
             return (

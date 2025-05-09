@@ -6,12 +6,21 @@ function ProfileCompletion() {
     let data = JSON.parse(sessionStorage.getItem("unfinished user"));
     sessionStorage.removeItem("unifinished user")
 
-
     // 3 seperate form components, and depending on the role the one will be generated
 
+    // profile picture uploader
     return (
       <>
-        <CustomPrompts unfinished_user={data}/>
+        <div className={styles.theme}>
+          <div className={styles.focus}>
+            <div className={styles.finished}>
+              
+            </div>
+            <div className={styles.unfinished}>
+              <CustomPrompts unfinished_user={data}/>
+            </div>
+          </div>
+        </div>
       </>
     );
   }
