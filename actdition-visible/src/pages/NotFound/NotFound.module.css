@@ -1,0 +1,53 @@
+@font-face {
+    font-family: 'Jersey M54';
+    src: url('/fonts/Jersey M54.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'LobsterTwo-Regular';
+    src: url('/fonts/LobsterTwo-Regular.ttf') format('truetype');
+}
+
+.pricedown {
+    background-color: black;
+    font-family: 'Jersey M54', sans-serif;
+    color: white;
+    font-size: 10vw;
+    text-align: center;
+    padding: 10px;
+}
+
+.pricedown span {
+    font-size: 2vw;
+    color: pink;
+}
+
+@media (max-width: 1200px) {
+    .pricedown {
+        font-size: 8vw;
+    }
+
+    .pricedown span {
+        font-size: 1.5vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .pricedown {
+        font-size: 12vw;
+    }
+
+    .pricedown span {
+        font-size: 3vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .pricedown {
+        font-size: 15vw;
+    }
+
+    .pricedown span {
+        font-size: 4vw;
+    }
+}
