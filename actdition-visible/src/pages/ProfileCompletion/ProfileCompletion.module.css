@@ -1,1 +1,13 @@
-.theme {}
+.theme {
+    background-color: #111111;
+    width: 90%;
+    height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    color: white;
+}
+
+.finished {}
+
+.unfinished {}
