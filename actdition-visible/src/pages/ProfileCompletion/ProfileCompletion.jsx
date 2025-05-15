@@ -14,8 +14,10 @@ function ProfileCompletion() {
         <div className={styles.theme}>
           <div className={styles.focus}>
             <div className={styles.finished}>
+              50% child
             </div>
             <div className={styles.unfinished}>
+              50% child
               <CustomPrompts unfinished_user={data}/>
             </div>
           </div>
