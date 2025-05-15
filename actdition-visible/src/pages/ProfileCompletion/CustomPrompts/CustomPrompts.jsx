@@ -1,47 +1,43 @@
 import React from "react";
 import styles from './CustomPrompts.module.css';
 
-function CustomPrompts( { unfinished_user } ) 
-{
-    // unfinished_user["test"] = "volimte";
-    // console.table(unfinished_user);
+const ActorPrompt = ({ data }) => (
+  <>
 
-    // ili da obrises kreaciju korisnika pri registraciji, ili da ovde napravis potpunog registrovanog korisnika pa da ga obrises iz prethodnog pokusaja
+  </>
+);
 
-    // double value input
-    // date picker
-    // textbox
+const CastingDirectorPrompt = ({ data }) => (
+  <>
+    {data.username}
+    {data.position}
+  </>
+);
 
-    // fetch dropdown
+const ProducerPrompt = ({ data }) => (
+  <>
 
+  </>
+);
 
-    switch (unfinished_user.position) {
-        case "actor":
-            return (
-                <>
-          
-                </>
-            );
-        case "castingdirector":
-            return (
-                <>
-          
-                </>
-            );
-        case "producer":
-            return (
-                <>
-          
-                </>
-            );
-        default:
-            return (
-                <>
-                    Neki eror koji ces blagovremeno napisati 😉
-                </>
-            );
-    }
+const PositionComponents = {
+  actor: ActorPrompt,
+  castingdirector: CastingDirectorPrompt,
+  producer: ProducerPrompt,
+};
+
+function CustomPrompts({ unfinished_user }) {
+  const PositionComponent = PositionComponents[unfinished_user.position];
+
+  if (!PositionComponent) {
+    return (
+      <div className={styles.error}>
+        Neki eror koji ces blagovremeno napisati 😉
+      </div>
+    );
   }
-  
-  export default CustomPrompts;
-  
+
+  return <PositionComponent data={unfinished_user} />;
+}
+
+export default CustomPrompts;
