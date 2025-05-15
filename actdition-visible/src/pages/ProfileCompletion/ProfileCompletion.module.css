@@ -1,32 +1,36 @@
 .theme {
-    color: #fff;
-    font-family: sans-serif;
-    font-size: 1.25rem;
-    line-height: 150%;
-    text-align: center;
-    text-shadow: 0 2px 2px #b6701e;
-
-
     background-color: #111111;
     width: 90%;
     height: 100vh;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     color: white;
+}
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.focus {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
 }
 
 .finished {
-    background-color: #ff9e2c;
-    flex: 1;
+    background: #ff9e2c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 1rem;
 }
 
 .unfinished {
-    background-color: #b6701e;
-    flex: 1;
+    background: #b6701e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 1rem;
+}
+
+@media (max-width: 600px) {
+    .focus {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+    }
 }
