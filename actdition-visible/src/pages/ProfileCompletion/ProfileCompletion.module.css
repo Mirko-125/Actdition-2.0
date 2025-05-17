@@ -13,11 +13,13 @@
 }
 
 .finished {
-    background: #ff9e2c;
+    background: #222222;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
     padding: 1rem;
+    gap: 10px;
 }
 
 .unfinished {
@@ -26,6 +28,36 @@
     align-items: center;
     justify-content: center;
     padding: 1rem;
+}
+
+.frame {
+    height: 250px;
+    width: 250px;
+    border: hsl(130, 13%, 57%) 5px solid;
+    box-shadow: 10px 10px #111111;
+    transition: 0.3s;
+    margin: 23px;
+}
+
+.frame:hover {
+    border: pink 5px solid;
+}
+
+.upload {
+    color: white;
+    text-decoration: none;
+    font-size: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.field {
+    font-size: 1.3rem;
+}
+
+.sub {
+    color: #555;
 }
 
 @media (max-width: 600px) {
