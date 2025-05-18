@@ -60,13 +60,34 @@
     font-size: 16px;
 }
 
+/* For WebKit browsers (Chrome, Safari, Edge) */
+.finput[type="number"]::-webkit-inner-spin-button,
+.finput[type="number"]::-webkit-outer-spin-button {
+    background-color: #222;
+    color: #ddd;
+
+}
+
+/* For Firefox */
+.finput[type="number"] {
+    background-color: #222;
+    color: #ddd;
+}
+
+.finput::placeholder {
+    font-family: 'HelveticaMedium', Arial, sans-serif;
+    font-size: 16px;
+    color: #999;
+}
+
 .finput {
     /*
   width: 65%;
   text-decoration: underline;
   */
+    font-family: 'HelveticaMedium', Arial, sans-serif;
     color: white;
-    font-size: 0.9rem;
+    font-size: 16px;
     width: 100%;
     box-sizing: border-box;
     padding-inline: 0.5em;
@@ -74,6 +95,8 @@
     border: none;
     border-bottom: var(--border-height) solid var(--border-before-color);
     background: none transparent;
+    resize: vertical;
+    overflow: auto;
 }
 
 .finput:hover {

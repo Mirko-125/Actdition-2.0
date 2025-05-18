@@ -20,20 +20,20 @@ const Registration = () => {
     c_passphrase: "",
   });
 
-  const checkavailAbility = async (identifier) =>
-  {
+  const checkavailAbility = async (identifier) => {
     try {
-      const response = await fetch(`http://localhost:5135/api/Users/checkavailability?identifier=${identifier}`);
+      const response = await fetch(
+        `http://localhost:5135/api/Users/checkavailability?identifier=${identifier}`
+      );
       console.log(response);
-      if(response.status == 400)
-      {
-          console.log(`${identifier} is already taken.`);
-          setErrorMessage(`${identifier} is already taken.`)
+      if (response.status == 400) {
+        console.log(`${identifier} is already taken.`);
+        setErrorMessage(`${identifier} is already taken.`);
       }
     } catch (error) {
       console.error(error.message);
     }
-  }
+  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -135,9 +135,9 @@ const Registration = () => {
       // res is ok further on
       const result = await res.json(); // the unfinished user is stored in the result object
       console.log(res.status);
-      
+
       sessionStorage.setItem("unfinished user", JSON.stringify(result));
-      navigate('/complete-profile');
+      navigate("/complete-profile");
     } catch (err) {
       setErrorMessage(err.message);
       setTimeout(() => setErrorMessage(""), 4000);
