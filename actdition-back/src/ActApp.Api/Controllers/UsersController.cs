@@ -82,6 +82,12 @@ namespace ActApp.Api.Controllers
             if (user == null) return NotFound();
             return user;
         }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
+        {
+            var users = await _context.Users.ToListAsync();
+            return Ok(users);
+        }
         [HttpDelete("{id}")]
         public async Task<ActionResult<User>> DeleteUser(int id)
         {
@@ -91,6 +97,24 @@ namespace ActApp.Api.Controllers
             await _context.SaveChangesAsync();
             if (user == null) return Ok();
             return BadRequest();
+        }
+        [HttpDelete("byIdentifier")]
+        public async Task<ActionResult> DeleteUserByIdentifier(string identifier)
+        {
+            var user = await _context.Users.SingleOrDefaultAsync(u =>
+                u.Username == identifier ||
+                u.EMail == identifier ||
+                u.Phone == identifier);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            _context.Users.Remove(user);
+            await _context.SaveChangesAsync();
+
+            return Ok();
         }
     }
 }

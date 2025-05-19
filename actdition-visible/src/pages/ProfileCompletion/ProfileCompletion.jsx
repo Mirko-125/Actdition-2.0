@@ -3,13 +3,36 @@ import styles from "./ProfileCompletion.module.css";
 import global from "../../components/functionalities/sliding-window/inner-content/global.module.css";
 import CustomPrompts from "./CustomPrompts/CustomPrompts";
 import x from "../../assets/exodus.svg";
+import { useNavigate } from "react-router-dom";
 
 function ProfileCompletion() {
   let data = JSON.parse(sessionStorage.getItem("unfinished user"));
   sessionStorage.removeItem("unifinished user");
   console.table(data);
 
-  // 3 seperate form components, and depending on the role the one will be generated
+  const navigate = useNavigate();
+
+  const handleReturn = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await fetch(
+        `http://localhost:5135/api/Users/byIdentifier?identifier=${data.username}`,
+        {
+          method: "DELETE",
+        }
+      );
+      if (response.ok) {
+        navigate("/");
+      } else if (response.status === 404) {
+        console.log("User not found");
+      } else {
+        console.log("Delete failed");
+      }
+    } catch (error) {
+      console.error("Error deleting user:", error);
+    }
+  };
+
   // profile picture uploader
   return (
     <>
@@ -44,7 +67,7 @@ function ProfileCompletion() {
           </div>
           <div className={styles.unfinished}>
             <div className={styles.exodus}>
-              <a onClick={console.log("masinciprotivmasinerije")}>
+              <a onClick={handleReturn}>
                 <img className={styles.exit} src={x} alt="X" />
               </a>
             </div>
