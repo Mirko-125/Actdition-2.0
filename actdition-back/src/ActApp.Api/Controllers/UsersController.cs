@@ -116,5 +116,55 @@ namespace ActApp.Api.Controllers
 
             return Ok();
         }
+        [HttpPost("{userId}/uploadProfilePicture")]
+        public async Task<IActionResult> UploadProfilePicture(int userId, IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+                return BadRequest("No file uploaded.");
+
+            var user = await _context.Users.FindAsync(userId);
+            if (user == null)
+                return NotFound("User not found.");
+
+            if (!file.ContentType.StartsWith("image/"))
+                return BadRequest("Only image files are allowed.");
+
+            using var ms = new MemoryStream();
+            await file.CopyToAsync(ms);
+            var imageData = ms.ToArray();
+
+            var existingImage = await _context.UserImages.SingleOrDefaultAsync(i => i.UserId == userId);
+            if (existingImage != null)
+            {
+                // Update existing image
+                existingImage.ImageData = imageData;
+                existingImage.ContentType = file.ContentType;
+                existingImage.CreatedAt = DateTime.UtcNow;
+            }
+            else
+            {
+                // Add new image
+                var userImage = new UserImage
+                {
+                    UserId = userId,
+                    ImageData = imageData,
+                    ContentType = file.ContentType
+                };
+                _context.UserImages.Add(userImage);
+            }
+
+            await _context.SaveChangesAsync();
+
+            return Ok("Profile picture uploaded successfully.");
+        }
+        [HttpGet("{userId}/profilePicture")]
+        public async Task<IActionResult> GetProfilePicture(int userId)
+        {
+            var image = await _context.UserImages.SingleOrDefaultAsync(i => i.UserId == userId);
+            if (image == null)
+                return NotFound();
+
+            return File(image.ImageData, image.ContentType);
+        }
     }
 }

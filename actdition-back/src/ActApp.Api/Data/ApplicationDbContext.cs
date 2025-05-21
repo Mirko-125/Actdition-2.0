@@ -8,6 +8,7 @@ public class ApplicationDbContext : DbContext
     { }
 
     public DbSet<User> Users { get; set; }
+    public DbSet<UserImage> UserImages { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -24,5 +25,11 @@ public class ApplicationDbContext : DbContext
         modelBuilder.Entity<User>()
             .HasIndex(u => u.Phone)
             .IsUnique();
+
+        modelBuilder.Entity<User>()
+            .HasOne(u => u.ProfilePicture)
+            .WithOne(i => i.User)
+            .HasForeignKey<UserImage>(i => i.UserId)
+            .OnDelete(DeleteBehavior.Cascade); // Optional: cascade delete
     }
 }
