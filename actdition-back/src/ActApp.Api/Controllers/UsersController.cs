@@ -116,6 +116,20 @@ namespace ActApp.Api.Controllers
 
             return Ok();
         }
+        [HttpGet("profilePicture/byIdentifier")]
+        public async Task<IActionResult> GetProfilePictureByIdentifier(string identifier)
+        {
+            var user = await _context.Users.SingleOrDefaultAsync(u =>
+                u.Username == identifier ||
+                u.EMail == identifier ||
+                u.Phone == identifier);
+            if (user == null)
+                return NotFound("User not found.");
+            var image = await _context.UserImages.SingleOrDefaultAsync(i => i.UserId == user.Id);
+            if (image == null)
+                return NotFound("Profile picture not found.");
+            return File(image.ImageData, image.ContentType);
+        }
         [HttpPost("{userId}/uploadProfilePicture")]
         public async Task<IActionResult> UploadProfilePicture(int userId, IFormFile file)
         {
@@ -136,14 +150,12 @@ namespace ActApp.Api.Controllers
             var existingImage = await _context.UserImages.SingleOrDefaultAsync(i => i.UserId == userId);
             if (existingImage != null)
             {
-                // Update existing image
                 existingImage.ImageData = imageData;
                 existingImage.ContentType = file.ContentType;
                 existingImage.CreatedAt = DateTime.UtcNow;
             }
             else
             {
-                // Add new image
                 var userImage = new UserImage
                 {
                     UserId = userId,
