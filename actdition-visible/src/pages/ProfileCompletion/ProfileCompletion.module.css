@@ -67,7 +67,7 @@
     border: hsl(130, 13%, 57%) 5px solid;
     box-shadow: 10px 10px #111111;
     transition: 0.3s;
-    margin: 23px;
+    margin: 23px 23px 12px 23px;
 }
 
 .frame:hover {

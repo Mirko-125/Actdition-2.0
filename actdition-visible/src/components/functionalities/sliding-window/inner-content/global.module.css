@@ -192,6 +192,38 @@
     transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
 }
 
+.submit:disabled,
+.submit:disabled:hover,
+.submit:disabled:hover:after,
+.submit:disabled span:first-child,
+.submit:disabled span:last-child {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+.submit:disabled{
+    cursor: not-allowed;
+    background-color: #ebebeb;
+    color: #838383;
+}
+
+.submit:disabled span:last-child {
+    display: none;
+  }
+
+.submit:disabled:after {
+    background-image: repeating-linear-gradient(
+        -45deg,              
+        #FFC300  0,               
+        #FFC300  10px,            
+        #222 10px,           
+        #222 20px            
+      );
+      border: 2px solid #000000;
+}
+
 .infopult {
     font-family: 'HelveticaMedium', Arial, sans-serif;
     font-size: 14px;
