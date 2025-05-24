@@ -66,12 +66,13 @@
     width: 250px;
     border: hsl(130, 13%, 57%) 5px solid;
     box-shadow: 10px 10px #111111;
-    transition: 0.3s;
+    transition: 0.5s;
     margin: 23px 23px 12px 23px;
 }
 
 .frame:hover {
     border: pink 5px solid;
+    cursor: pointer;
 }
 
 .upload {
@@ -83,6 +84,14 @@
     justify-content: center;
 }
 
+.preview
+{
+    height: 250px;
+    width: 250px;
+    display: block;
+    object-fit: cover;
+}
+
 .field {
     font-size: 1.3rem;
 }
@@ -90,6 +99,18 @@
 .sub {
     color: #555;
 }
+
+.feedback{
+    position: fixed; /* might need to change this to absolute - relative */
+    top: 20;
+    right: 20;
+    background-color: hsl(130, 13%, 57%);
+    color: white;
+    padding: 10px 20px;
+    margin: 45px 25px 25px 115px;
+    transition: transform 0.3s ease;
+}
+
 
 @media (max-width: 600px) {
     .focus {
@@ -112,8 +133,7 @@
       left: auto !important;
     }
   
-    .exit {
-      cursor: auto !important;    
+    .exit {  
       margin: 0 !important;        
       width: auto !important;    
       height: auto !important;    

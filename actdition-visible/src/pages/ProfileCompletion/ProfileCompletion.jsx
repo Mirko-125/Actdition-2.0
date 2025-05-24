@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styles from "./ProfileCompletion.module.css";
 import global from "../../components/functionalities/sliding-window/inner-content/global.module.css";
 import CustomPrompts from "./CustomPrompts/CustomPrompts";
@@ -15,16 +15,28 @@ function ProfileCompletion() {
   const [file, setFile] = useState(null);
   const fileInputRef = useRef(null);
 
-  // Trigger file input click when user clicks the '+' anchor
+  const [previewUrl, setPreviewUrl] = useState(null);
+
+  const [feedback, setFeedback] = useState(false);
+
+  const showFeedback = () => {
+    setFeedback(true);
+    setTimeout(() => {
+      setFeedback(false);
+    }, 3000);
+  };
+
   const handleUploadClick = (e) => {
     e.preventDefault();
     fileInputRef.current?.click();
   };
 
-  // Save the selected file to state
-  const handleFileChange = (e) => {
-    if (e.target.files && e.target.files[0]) {
-      setFile(e.target.files[0]);
+  const handleFileChange = (event) => {
+    const selectedFile = event.target.files[0];
+    if (selectedFile) {
+      setFile(selectedFile);
+      const objectUrl = URL.createObjectURL(selectedFile);
+      setPreviewUrl(objectUrl);
     }
   };
 
@@ -52,6 +64,7 @@ function ProfileCompletion() {
       }
 
       const responseData = await response.text(); // json if I ever need to return the actual picture or something like that
+      showFeedback();
       console.log("Upload success:", responseData);
     } catch (error) {
       console.error("Upload error:", error);
@@ -79,9 +92,34 @@ function ProfileCompletion() {
     }
   };
 
-  // profile picture uploader
+  useEffect(() => {
+    fetchIfExists();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const fetchIfExists = async () => {
+    try {
+      const response = await fetch(
+        `http://localhost:5135/api/Users/${data.id}/profilePicture`
+      );
+
+      if (!response.ok) {
+        return;
+      }
+
+      const imageBlob = await response.blob();
+
+      const imageObjectUrl = URL.createObjectURL(imageBlob);
+
+      setPreviewUrl(imageObjectUrl);
+    } catch (error) {
+      console.error("Failed to fetch user profile image:", error);
+    }
+  };
+
   return (
     <>
+      {feedback && <div className={styles.feedback}>New pic is set!</div>}
       <div className={styles.theme}>
         <div className={styles.focus}>
           <div className={styles.finished}>
@@ -94,7 +132,16 @@ function ProfileCompletion() {
                 onChange={handleFileChange}
               />
               <a className={styles.upload} onClick={handleUploadClick}>
-                +
+                {previewUrl ? (
+                  <img
+                    src={previewUrl}
+                    alt="+"
+                    className={styles.preview}
+                    onLoad={() => URL.revokeObjectURL(previewUrl)} // Čisti memoriju
+                  />
+                ) : (
+                  "+"
+                )}
               </a>
             </div>
             <button
