@@ -68,6 +68,7 @@
     box-shadow: 10px 10px #111111;
     transition: 0.5s;
     margin: 23px 23px 12px 23px;
+    background-color: #434343;
 }
 
 .frame:hover {
@@ -109,6 +110,8 @@
     padding: 10px 20px;
     margin: 45px 25px 25px 115px;
     transition: transform 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    z-index: 20;
 }
 
 

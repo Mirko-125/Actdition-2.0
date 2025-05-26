@@ -102,15 +102,11 @@ function ProfileCompletion() {
       const response = await fetch(
         `http://localhost:5135/api/Users/${data.id}/profilePicture`
       );
-
       if (!response.ok) {
         return;
       }
-
       const imageBlob = await response.blob();
-
       const imageObjectUrl = URL.createObjectURL(imageBlob);
-
       setPreviewUrl(imageObjectUrl);
     } catch (error) {
       console.error("Failed to fetch user profile image:", error);
