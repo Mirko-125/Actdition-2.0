@@ -68,10 +68,11 @@
     box-shadow: 10px 10px #111111;
     transition: 0.5s;
     margin: 23px 23px 12px 23px;
-    background-color: #434343;
+    background-color: #929292;
 }
 
 .frame:hover {
+    background-color: #b1b1b1;
     border: pink 5px solid;
     cursor: pointer;
 }

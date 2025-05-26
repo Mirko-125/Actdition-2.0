@@ -2,7 +2,8 @@ namespace ActApp.Api.Models
 {
     public class Production
     {
-        public required string Name { get; set; }
-        public required string Code { get; set; }
+        public int Id { get; set; }
+        public required string Name { get; set; } // Unique
+        public required string Code { get; set; } // Unique
     }
 }

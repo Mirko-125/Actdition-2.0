@@ -35,21 +35,19 @@ namespace ActApp.Api.Models
         public required double Weight { get; set; }
         public required DateTime Birthdate { get; set; }
         public required string Biography { get; set; }
-        // public List<Movies> PastMovies { get; set; }
-
-        // list that contains what he did except acting such as writing / directing and producing, look that up more
     }
 
     public class CastingDirector : User
     {
-        public required string ProductionCode { get; set; }
+        public int ProductionId { get; set; }
+        public Production Production { get; set; } = null!;
     }
 
     public class Producer : User
     {
         public required DateTime Birthdate { get; set; }
         public required string Biography { get; set; }
-        // public List<Movies> PastMovies { get; set; }
-        public required Production production;
+        public required Production Production { get; set; }
+        public int ProductionId { get; set; }
     }
 }

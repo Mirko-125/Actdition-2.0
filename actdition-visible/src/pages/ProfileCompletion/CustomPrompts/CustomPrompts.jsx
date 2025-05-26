@@ -111,7 +111,7 @@ const CastingDirectorPrompt = ({ data }) => {
             className={global.finput}
             id="name"
             maxLength={6}
-            placeholder="Enter a six char code"
+            placeholder="Enter the production code"
             name="code"
             onChange={handleChange}
           />
