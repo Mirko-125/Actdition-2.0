@@ -38,10 +38,6 @@ public class ApplicationDbContext : DbContext
             .HasIndex(p => p.Name)
             .IsUnique();
 
-        modelBuilder.Entity<Production>()
-            .HasIndex(p => p.Code)
-            .IsUnique();
-
         modelBuilder.Entity<Producer>()
             .HasOne(p => p.Production)
             .WithMany()

@@ -132,13 +132,54 @@ const ProducerPrompt = ({ data }) => {
   const [formData, setFormData] = useState({
     birthdate: "",
     bio: "",
-    // Production how?
+    production: {
+      name: "",
+      id: null,
+    },
   });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((fd) => ({ ...fd, [name]: value }));
   };
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    console.log(formData.birthdate);
+    return;
+    // 1. Create production
+    const productionResponse = await fetch("/api/productions", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: formData.production.name }),
+    });
+
+    if (!productionResponse.ok) {
+      // handle error
+      return;
+    }
+
+    const createdProduction = await productionResponse.json();
+
+    // 2. Create producer with productionId from created production
+    const producerResponse = await fetch("/api/producers", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        birthdate: formData.birthdate,
+        biography: formData.bio,
+        productionId: createdProduction.id,
+      }),
+    });
+
+    if (!producerResponse.ok) {
+      // handle error
+      return;
+    }
+
+    const createdProducer = await producerResponse.json();
+    // handle success, maybe clear form or redirect
+  }
 
   return (
     <>
@@ -184,19 +225,8 @@ const ProducerPrompt = ({ data }) => {
             />
             <span className={global.iborder}></span>
           </div>
-          <div className={global.form}>
-            <label className={global.textlabel}>Production name</label>
-            <input
-              className={global.finput}
-              type="text"
-              id="productionname"
-              name="productionname"
-              placeholder="Enter a six digit code"
-            />
-            <span className={global.iborder}></span>
-          </div>
         </div>
-        <button className={global.submit} onClick={console.log("dog")}>
+        <button className={global.submit} onClick={handleSubmit}>
           <span className="text">Done</span>
           <span>Get in</span>
         </button>

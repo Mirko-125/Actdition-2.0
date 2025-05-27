@@ -4,6 +4,5 @@ namespace ActApp.Api.Models
     {
         public int Id { get; set; }
         public required string Name { get; set; } // Unique
-        public required string Code { get; set; } // Unique
     }
 }
