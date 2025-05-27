@@ -156,22 +156,23 @@ const ProducerPrompt = ({ data }) => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log(formData);
-    return;
-    // 1. Create production
-    const productionResponse = await fetch("/api/productions", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name: formData.production.name }),
-    });
+    const productionResponse = await fetch(
+      `http://localhost:5135/api/Productions`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: formData.production.name }),
+      }
+    );
 
     if (!productionResponse.ok) {
-      // handle error
+      console.error("Bad!");
       return;
     }
 
     const createdProduction = await productionResponse.json();
-
+    console.log(createdProduction.id);
+    return; // You are here
     // 2. Create producer with productionId from created production
     const producerResponse = await fetch("/api/producers", {
       method: "POST",
