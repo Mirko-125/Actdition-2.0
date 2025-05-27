@@ -143,9 +143,20 @@ const ProducerPrompt = ({ data }) => {
     setFormData((fd) => ({ ...fd, [name]: value }));
   };
 
+  const handleProductionNameChange = (event) => {
+    const value = event.target.value;
+    setFormData((prev) => ({
+      ...prev,
+      production: {
+        ...prev.production,
+        name: value,
+      },
+    }));
+  };
+
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log(formData.birthdate);
+    console.log(formData);
     return;
     // 1. Create production
     const productionResponse = await fetch("/api/productions", {
@@ -221,7 +232,9 @@ const ProducerPrompt = ({ data }) => {
               className={global.finput}
               type="text"
               id="productionname"
-              name="productionname"
+              name="production.name"
+              value={formData.production.name}
+              onChange={handleProductionNameChange}
             />
             <span className={global.iborder}></span>
           </div>
