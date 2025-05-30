@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -10,9 +11,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ActApp.Api.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250530224923_v5production")]
+    partial class v5production
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,6 +52,11 @@ namespace ActApp.Api.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasMaxLength(21)
+                        .HasColumnType("character varying(21)");
+
                     b.Property<string>("EMail")
                         .IsRequired()
                         .HasColumnType("text");
@@ -76,11 +84,6 @@ namespace ActApp.Api.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("UserType")
-                        .IsRequired()
-                        .HasMaxLength(21)
-                        .HasColumnType("character varying(21)");
-
                     b.Property<string>("Username")
                         .IsRequired()
                         .HasColumnType("text");
@@ -98,7 +101,7 @@ namespace ActApp.Api.Migrations
 
                     b.ToTable("Users");
 
-                    b.HasDiscriminator<string>("UserType").HasValue("User");
+                    b.HasDiscriminator().HasValue("User");
 
                     b.UseTphMappingStrategy();
                 });
@@ -131,35 +134,6 @@ namespace ActApp.Api.Migrations
                         .IsUnique();
 
                     b.ToTable("UserImages");
-                });
-
-            modelBuilder.Entity("ActApp.Api.Models.Actor", b =>
-                {
-                    b.HasBaseType("ActApp.Api.Models.User");
-
-                    b.Property<string>("Biography")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("Birthdate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<double>("Height")
-                        .HasColumnType("double precision");
-
-                    b.Property<double>("Weight")
-                        .HasColumnType("double precision");
-
-                    b.ToTable("Users", t =>
-                        {
-                            t.Property("Biography")
-                                .HasColumnName("Actor_Biography");
-
-                            t.Property("Birthdate")
-                                .HasColumnName("Actor_Birthdate");
-                        });
-
-                    b.HasDiscriminator().HasValue("Actor");
                 });
 
             modelBuilder.Entity("ActApp.Api.Models.CastingDirector", b =>

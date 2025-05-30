@@ -17,6 +17,13 @@ public class ApplicationDbContext : DbContext
         base.OnModelCreating(modelBuilder);
 
         modelBuilder.Entity<User>()
+                .HasDiscriminator<string>("UserType")
+                .HasValue<User>("User")
+                .HasValue<Actor>("Actor")
+                .HasValue<Producer>("Producer")
+                .HasValue<CastingDirector>("CastingDirector");
+
+        modelBuilder.Entity<User>()
             .HasIndex(u => u.Username)
             .IsUnique();
 

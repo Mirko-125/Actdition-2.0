@@ -31,6 +31,23 @@ namespace ActApp.Api.Controllers
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
         }
+        [HttpPost("complete-actor/{userId}")]
+        public async Task<ActionResult<Actor>> CompleteActor(int userId, ActorCompletionDto dto)
+        {
+            var actor = await _context.Users.OfType<Actor>().FirstOrDefaultAsync(a => a.Id == userId);
+            if (actor == null)
+            {
+                return NotFound();
+            }
+
+            actor.Height = dto.Height;
+            actor.Weight = dto.Weight;
+            actor.Birthdate = dto.Birthdate;
+            actor.Biography = dto.Biography;
+
+            await _context.SaveChangesAsync();
+            return Ok(actor);
+        }
         [HttpGet("checkavailability")]
         public async Task<ActionResult<User>> CheckAvailability(string identifier)
         {

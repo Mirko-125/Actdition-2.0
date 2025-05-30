@@ -15,9 +15,33 @@ const ActorPrompt = ({ data }) => {
     setFormData((fd) => ({ ...fd, [name]: value }));
   };
 
-  const testData = (event) => {
-    const payload = { ...data, ...formData };
-    console.table(payload);
+  const submit = async (event) => {
+    event.preventDefault();
+    const payload = { ...formData };
+    try {
+      const response = await fetch(
+        `http://localhost:5135/api/Users/complete-actor/${data.id}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(
+          `Server error: ${response.status} ${response.statusText}`
+        );
+      }
+
+      const updatedActor = await response.json();
+      console.table(updatedActor);
+    } catch (error) {
+      console.error("Failed to complete actor profile:", error);
+      throw error;
+    }
   };
 
   return (
@@ -83,7 +107,7 @@ const ActorPrompt = ({ data }) => {
             <span className={global.iborder}></span>
           </div>
         </div>
-        <button className={global.submit} onClick={testData}>
+        <button className={global.submit} onClick={submit}>
           <span className="text">Done</span>
           <span>Hi</span>
         </button>
