@@ -31,22 +31,38 @@ namespace ActApp.Api.Controllers
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
         }
-        [HttpPost("complete-actor/{userId}")]
-        public async Task<ActionResult<Actor>> CompleteActor(int userId, ActorCompletionDto dto)
+
+        [HttpPut("CompleteActorRegistration/{id}")]
+        public async Task<IActionResult> CompleteActorRegistration(int id, [FromBody] ActorCompletionDto actorUpdate)
         {
-            var actor = await _context.Users.OfType<Actor>().FirstOrDefaultAsync(a => a.Id == userId);
-            if (actor == null)
+            var user = await _context.Users.FindAsync(id);
+
+            if (user == null)
             {
-                return NotFound();
+                return NotFound("User not found");
             }
 
-            actor.Height = dto.Height;
-            actor.Weight = dto.Weight;
-            actor.Birthdate = dto.Birthdate;
-            actor.Biography = dto.Biography;
+            if (user is Actor actor)
+            {
+                actor.Height = Convert.ToDouble(actorUpdate.Height);
+                actor.Height = Convert.ToDouble(actorUpdate.Weight);
+                actor.Birthdate = Convert.ToDateTime(actorUpdate.Birthdate);
+                actor.Biography = actorUpdate.Biography;
 
-            await _context.SaveChangesAsync();
-            return Ok(actor);
+                try
+                {
+                    await _context.SaveChangesAsync();
+                    return Ok("Actor registration completed successfully.");
+                }
+                catch (DbUpdateException ex)
+                {
+                    return StatusCode(500, $"Error updating actor: {ex.Message}");
+                }
+            }
+            else
+            {
+                return BadRequest("User is not an actor.");
+            }
         }
         [HttpGet("checkavailability")]
         public async Task<ActionResult<User>> CheckAvailability(string identifier)
@@ -98,12 +114,6 @@ namespace ActApp.Api.Controllers
             var user = await _context.Users.FindAsync(id);
             if (user == null) return NotFound();
             return user;
-        }
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
-        {
-            var users = await _context.Users.ToListAsync();
-            return Ok(users);
         }
         [HttpDelete("{id}")]
         public async Task<ActionResult<User>> DeleteUser(int id)

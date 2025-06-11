@@ -19,10 +19,14 @@ const ActorPrompt = ({ data }) => {
     event.preventDefault();
     const payload = { ...formData };
     try {
+      console.table(payload);
+      console.log("Ispod mene je id korisnika!");
+      console.log(data.id);
+      console.log(payload);
       const response = await fetch(
-        `http://localhost:5135/api/Users/complete-actor/${data.id}`,
+        `http://localhost:5135/api/Users/CompleteActorRegistration/${data.id}`,
         {
-          method: "POST",
+          method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },

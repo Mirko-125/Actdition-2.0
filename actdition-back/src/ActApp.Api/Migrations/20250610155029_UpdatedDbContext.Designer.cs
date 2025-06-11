@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -10,9 +11,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ActApp.Api.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250610155029_UpdatedDbContext")]
+    partial class UpdatedDbContext
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -74,6 +77,10 @@ namespace ActApp.Api.Migrations
 
                     b.Property<string>("Position")
                         .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("UserType")
+                        .IsRequired()
                         .HasMaxLength(21)
                         .HasColumnType("character varying(21)");
 
@@ -94,7 +101,7 @@ namespace ActApp.Api.Migrations
 
                     b.ToTable("Users");
 
-                    b.HasDiscriminator<string>("Position").HasValue("user");
+                    b.HasDiscriminator<string>("UserType").HasValue("User");
 
                     b.UseTphMappingStrategy();
                 });
@@ -155,7 +162,7 @@ namespace ActApp.Api.Migrations
                                 .HasColumnName("Actor_Birthdate");
                         });
 
-                    b.HasDiscriminator().HasValue("actor");
+                    b.HasDiscriminator().HasValue("Actor");
                 });
 
             modelBuilder.Entity("ActApp.Api.Models.CastingDirector", b =>
@@ -173,7 +180,7 @@ namespace ActApp.Api.Migrations
                                 .HasColumnName("CastingDirector_ProductionId");
                         });
 
-                    b.HasDiscriminator().HasValue("castingdirector");
+                    b.HasDiscriminator().HasValue("CastingDirector");
                 });
 
             modelBuilder.Entity("ActApp.Api.Models.Producer", b =>
@@ -192,7 +199,7 @@ namespace ActApp.Api.Migrations
 
                     b.HasIndex("ProductionId");
 
-                    b.HasDiscriminator().HasValue("producer");
+                    b.HasDiscriminator().HasValue("Producer");
                 });
 
             modelBuilder.Entity("ActApp.Api.Models.UserImage", b =>
